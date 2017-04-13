@@ -18,7 +18,7 @@ import br.ensalamento.dao.ProfessorDAO;
 import br.ensalamento.dto.ProfessorDTO;
 import br.ensalamento.model.Professor;
 
-public class ProfessorController {
+public class UsuarioController {
 	// Método para criar um professor
 	public static ProfessorDTO cadastrar(Professor pProfessor) {
 		if (pProfessor == null)
