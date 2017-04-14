@@ -23,46 +23,28 @@ public class Curso implements Serializable, Cloneable {
 	private String nomeCurso;
 	private Turma mTurma;
 
-	public Curso() {
-		super();
-	}
+	public Curso() { super(); }
 
-	public Curso(int pIdCurso, String pTurma) {
+	public Curso(int pIdCurso, String pTurma) { 
 		super();
 		setIdCurso(pIdCurso);
-		setNomeCurso(pTurma);
-	}
+		setNomeCurso(pTurma); 
+		}
 
 	@Id()
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "IDCURSO")
-	public int getIdCurso() {
-		return idCurso;
-	}
-
-	public void setIdCurso(int pIdCurso) {
-		idCurso = pIdCurso;
-	}
+	public int getIdCurso() { return idCurso; }
+	public void setIdCurso(int pIdCurso) { idCurso = pIdCurso; }
 
 	@Column(name = "NOMECURSO")
-	public String getNomeCurso() {
-		return nomeCurso;
-	}
-
-	public void setNomeCurso(String pNomeCurso) {
-		nomeCurso = pNomeCurso;
-	}
+	public String getNomeCurso() { return nomeCurso; }
+	public void setNomeCurso(String pNomeCurso) { nomeCurso = pNomeCurso; }
 
 	@ManyToOne()
 	@JoinColumn(name = "CURSO_TURMA") // Nome da chave estrangeira na tabela
-	public Turma getmTurma() {
-		return mTurma;
-	}
-
-	public void setmTurma(Turma mTurma) {
-		this.mTurma = mTurma;
-	}
-
+	public Turma getmTurma() { return mTurma; }
+	public void setmTurma(Turma mTurma) { this.mTurma = mTurma; }
 
 
 	@Override

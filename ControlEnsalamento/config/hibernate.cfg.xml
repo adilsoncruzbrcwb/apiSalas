@@ -3,20 +3,13 @@
                                          "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
 	<session-factory>
-		<!-- Dialeto e Driver para Oracle -->
-		<property name="dialect">org.hibernate.dialect.OracleDialect</property>
-		<property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
-
-		<!-- Detalhes do Banco de Dados -->
-		<property name="connection.username">sala</property>
-		<property name="connection.password">sala</property>
-		<property name="connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
-		<property name="connection.pool_size">1</property>
-		<property name="hibernate.default_schema">sala</property>
-		<property name="hibernate.current_session_context_class">thread</property>
-
-		<!-- Propriedades Adicionais -->
-		<property name="show_sql">true</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.password">ih3kaerdwqcq</property>
+		<property name="hibernate.connection.url">jdbc:mysql://emsalafacildb.cidlb1hru15j.us-west-2.rds.amazonaws.com:xe</property>
+		<property name="hibernate.connection.username">emsalafacil</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">false</property>
 		<property name="hbm2ddl.auto">create</property>
 
 		<!-- Mapeamento das Classes -->
@@ -25,9 +18,6 @@
 		<mapping class="br.ensalamento.model.Sala" />
 		<mapping class="br.ensalamento.model.Turma" />
 		<mapping class="br.ensalamento.model.TipoDeSala" />
-		<mapping class="br.ensalamento.model.Professor" />
-
-		
 
 	</session-factory>
 </hibernate-configuration>

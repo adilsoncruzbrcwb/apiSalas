@@ -115,7 +115,7 @@ public class TurmaHibernateDAO implements TurmaDAO {
 	            Session tSessao = tFactory.getCurrentSession();
 
 	            Criteria tCriterio = tSessao.createCriteria(Turma.class)
-	                                          .add(Restrictions.like("Professor", tNomePesquisa).ignoreCase());
+	                                          .add(Restrictions.like("Usuario", tNomePesquisa).ignoreCase());
 
 	            tLista = tCriterio.list();
 	        }

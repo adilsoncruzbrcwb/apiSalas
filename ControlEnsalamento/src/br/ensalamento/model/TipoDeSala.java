@@ -16,42 +16,24 @@ import javax.persistence.Table;
 public class TipoDeSala implements Serializable, Cloneable {
 	/* Atributos estáticos */
 	private static final long serialVersionUID = 5878830439335072748L;
-
-	/* Atributos normais */
-	private int idTipoSala;
-	private String nomeTipo;
-	private Sala mSala;
-
-	/* Métodos de acesso */
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "IDTIPOSALA")
-	public int getIdTipoSala() {
-		return idTipoSala;
-	}
-
-	public void setIdTipoSala(int idTipoSala) {
-		this.idTipoSala = idTipoSala;
-	}
+	private int idTipoSala;
+	public int getIdTipoSala() { return idTipoSala; }
+	public void setIdTipoSala(int idTipoSala) { this.idTipoSala = idTipoSala; }
 
 	@Column(name = "NOMETIPO")
-	public String getNomeTipo() {
-		return nomeTipo;
-	}
-
-	public void setNomeTipo(String nomeTipo) {
-		this.nomeTipo = nomeTipo;
-	}
+	private String nomeTipo;
+	public String getNomeTipo() { return nomeTipo; }
+	public void setNomeTipo(String nomeTipo) { this.nomeTipo = nomeTipo; }
 
 	@ManyToOne()
 	@JoinColumn(name = "tipo_sala") // Nome da chave estrangeira na tabela
-	public Sala getmSala() {
-		return mSala;
-	}
-
-	public void setmSala(Sala mSala) {
-		this.mSala = mSala;
-	}
+	private Sala mSala;
+	public Sala getmSala() { return mSala; }
+	public void setmSala(Sala mSala) { this.mSala = mSala; }
 
 	/* Métodos da classe Object */
 	@Override
@@ -89,8 +71,6 @@ public class TipoDeSala implements Serializable, Cloneable {
 	}
 
 	@Override
-	protected Object clone() throws CloneNotSupportedException {
-		return super.clone();
-	}
+	protected Object clone() throws CloneNotSupportedException { return super.clone(); }
 
 }

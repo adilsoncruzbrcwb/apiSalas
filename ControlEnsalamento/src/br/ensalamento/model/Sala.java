@@ -17,48 +17,26 @@ public class Sala implements Serializable, Cloneable {
 	/* Atributos estáticos */
 	private static final long serialVersionUID = 5878830439335072748L;
 
-	/* Atributos normais */
-	private int idSala;
-	private int capacidade;
-	private Ensalamento ensalamento;
-
-	
 	/* Métodos de acesso */
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column (name = "IDSALA")
-	public int getIdSala() {
-		return idSala;
-	}
+	private int idSala;
+	public int getIdSala() {return idSala;}
+	public void setIdSala(int idSala) {	this.idSala = idSala;}
 
-	public void setIdSala(int idSala) {
-		this.idSala = idSala;
-	}
 	@Column (name = "CAPACIDADE")
-	public int getCapacidade() {
-		return capacidade;
-	}
-
-	public void setCapacidade(int capacidade) {
-		this.capacidade = capacidade;
-	}
+	private int capacidade;
+	public int getCapacidade() {return capacidade;}
+	public void setCapacidade(int capacidade) {	this.capacidade = capacidade;}
 	
 	@ManyToOne()
 	@JoinColumn(name = "SALA_ENSALAMENTO") // Nome da chave estrangeira na tabela
-	public Ensalamento getEnsalamento() {
-		return ensalamento;
-	}
-
-	public void setEnsalamento(Ensalamento ensalamento) {
-		this.ensalamento = ensalamento;
-	}
+	private Ensalamento ensalamento;
+	public Ensalamento getEnsalamento() {return ensalamento;}
+	public void setEnsalamento(Ensalamento ensalamento) {this.ensalamento = ensalamento;}
 	
-	
-
 	/* Métodos da classe Object */
-
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -91,7 +69,5 @@ public class Sala implements Serializable, Cloneable {
 	}
 
 	@Override
-	protected Object clone() throws CloneNotSupportedException {
-		return super.clone();
-	}
+	protected Object clone() throws CloneNotSupportedException { return super.clone(); }
 }

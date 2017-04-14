@@ -1,14 +1,3 @@
-/*
- * Conexao.java
- *
- * Classe que faz e armazena a conexão com o banco de dados via JDBC
- *
- * © 2016 - Faculdades Opet - Todos os direitos reservados.
- *
- * Histórico
- * 14/07/2016 – Versão 1.0 - José Augusto – Criação do arquivo
- *
- */
 package br.ensalamento.jdbc;
 
 import java.io.FileWriter;

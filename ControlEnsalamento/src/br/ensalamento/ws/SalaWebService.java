@@ -14,6 +14,7 @@ import br.ensalamento.controller.SalasController;
 import br.ensalamento.dto.SalasDTO;
 import br.ensalamento.model.Sala;
 
+@Path ("/Sala")
 public class SalaWebService {
 
 	@POST

@@ -20,9 +20,7 @@ public class CursoWebService {
 	@Path("/Cadastrar")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public CursoDTO cadastrar(Curso pCurso) {
-		return CursoController.cadastrar(pCurso);
-	}
+	public CursoDTO cadastrar(Curso pCurso) { return CursoController.cadastrar(pCurso);	}
 
 	@GET
 	@Path("/Recuperar/{idCurso}")

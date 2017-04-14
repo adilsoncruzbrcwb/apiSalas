@@ -12,4 +12,5 @@
     <filter-name>FiltroHibernate</filter-name>
     <url-pattern>/WS/*</url-pattern>
   </filter-mapping>
+  
 </web-app>

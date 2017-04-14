@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "TB_PROFESSOR")
+@Table(name = "TB_USUARIO")
 public class Usuario implements Serializable, Cloneable {
 	/* Atributos estáticos */
 	private static final long serialVersionUID = 2179092916642396463L;
@@ -142,7 +142,6 @@ public class Usuario implements Serializable, Cloneable {
 
 	@Override
 	public Object clone() throws CloneNotSupportedException {return super.clone();}
-	
-	
+
 
 }
