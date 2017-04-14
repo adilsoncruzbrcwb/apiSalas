@@ -23,33 +23,69 @@ public class Ensalamento extends Usuario implements Serializable, Cloneable {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "IDENSALAMENTO")
 	private int idEnsalamento;
-	public int getIdEnsalamento() {return idEnsalamento;}
-	public void setIdEnsalamento(int idEnsalamento) {this.idEnsalamento = idEnsalamento;}
 
 	@Column(name = "TURNO")
 	private Turno turno;
-	public Turno getTurno() {return turno;}
-	public void setTurno(Turno turno) {this.turno = turno;}
 
 	@Column(name = "DATAINICIO")
 	private Date datainicio;
-	public Date getDatainicio() {return datainicio;}
-	public void setDatainicio(Date datainicio) {this.datainicio = datainicio;}
 
 	@Column(name = "DATAFIM")
 	private Date dataFim;
-	public Date getDataFim() {return dataFim;}
-	public void setDataFim(Date dataFim) {this.dataFim = dataFim;}
 
 	@Column(name = "DIADASEMANA")
 	private String diaDaSemana;
-	public String getDiaDaSemana() {return diaDaSemana;}
-	public void setDiaDaSemana(String diaDaSemana) {this.diaDaSemana = diaDaSemana;}
 
 	@Column(name = "DISPONIBILIDADE")
 	private String disponibilidade;
-	public String getDisponibilidade() {return disponibilidade;}
-	public void setDisponibilidade(String disponibilidade) {this.disponibilidade = disponibilidade;}
+
+	public int getIdEnsalamento() {
+		return idEnsalamento;
+	}
+
+	public void setIdEnsalamento(int idEnsalamento) {
+		this.idEnsalamento = idEnsalamento;
+	}
+
+	public Turno getTurno() {
+		return turno;
+	}
+
+	public void setTurno(Turno turno) {
+		this.turno = turno;
+	}
+
+	public Date getDatainicio() {
+		return datainicio;
+	}
+
+	public void setDatainicio(Date datainicio) {
+		this.datainicio = datainicio;
+	}
+
+	public Date getDataFim() {
+		return dataFim;
+	}
+
+	public void setDataFim(Date dataFim) {
+		this.dataFim = dataFim;
+	}
+
+	public String getDiaDaSemana() {
+		return diaDaSemana;
+	}
+
+	public void setDiaDaSemana(String diaDaSemana) {
+		this.diaDaSemana = diaDaSemana;
+	}
+
+	public String getDisponibilidade() {
+		return disponibilidade;
+	}
+
+	public void setDisponibilidade(String disponibilidade) {
+		this.disponibilidade = disponibilidade;
+	}
 
 	@Override
 	public int hashCode() {
