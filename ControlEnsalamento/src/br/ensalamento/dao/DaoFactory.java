@@ -3,7 +3,7 @@ package br.ensalamento.dao;
 import br.ensalamento.dao.hibernate.CursoHibernateDAO;
 import br.ensalamento.dao.hibernate.DisciplinaHibernateDAO;
 import br.ensalamento.dao.hibernate.EnsalamentosHibernateDAO;
-import br.ensalamento.dao.hibernate.ProfessorHibernateDAO;
+import br.ensalamento.dao.hibernate.UsuarioHibernateDAO;
 import br.ensalamento.dao.hibernate.SalasHibernateDAO;
 import br.ensalamento.dao.hibernate.TipoDeSalaHibernateDAO;
 import br.ensalamento.dao.hibernate.TurmaHibernateDAO;
@@ -17,8 +17,8 @@ public class DaoFactory {
 		return new DisciplinaHibernateDAO();
 	}
 
-	public static ProfessorDAO getProfessorDAO() {
-		return new ProfessorHibernateDAO();
+	public static UsuarioDAO getUsuarioDAO() {
+		return new UsuarioHibernateDAO();
 	}
 
 	public static CursoDao getCursoDao() {
@@ -36,5 +36,7 @@ public class DaoFactory {
 	public static TurmaDAO geTurmaDAO() {
 		return new TurmaHibernateDAO();
 	}
+
+
 
 }
