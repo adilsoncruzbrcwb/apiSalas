@@ -1,7 +1,7 @@
 /*
- * ProfessorController.java
+ * UsuarioController.java
  *
- * Classe que implementa os serviços de manutenção de professors
+ * Classe que implementa os serviços de manutenção de Usuarios
  *
  * © 2016 - Faculdades Opet - Todos os direitos reservados.
  *
@@ -14,81 +14,81 @@ package br.ensalamento.controller;
 import java.util.List;
 
 import br.ensalamento.dao.DaoFactory;
-import br.ensalamento.dao.ProfessorDAO;
-import br.ensalamento.dto.ProfessorDTO;
-import br.ensalamento.model.Professor;
+import br.ensalamento.dao.UsuarioDAO;
+import br.ensalamento.dto.UsuarioDTO;
+import br.ensalamento.model.Usuario;
 
 public class UsuarioController {
-	// Método para criar um professor
-	public static ProfessorDTO cadastrar(Professor pProfessor) {
-		if (pProfessor == null)
-			return new ProfessorDTO(false, "Tentativa de inserir um professor nulo");
+	// Método para criar um Usuario
+	public static UsuarioDTO cadastrar(Usuario pUsuario) {
+		if (pUsuario == null)
+			return new UsuarioDTO(false, "Tentativa de inserir um Usuario nulo");
 
-		ProfessorDAO tDao = DaoFactory.getProfessorDAO();
-		Professor tProfessor = tDao.create(pProfessor);
+		UsuarioDAO tDao = DaoFactory.getUsuarioDAO();
+		Usuario tUsuario = tDao.create(pUsuario);
 
-		if (tProfessor == null)
-			return new ProfessorDTO(false, "Problemas na gravação do professor");
+		if (tUsuario == null)
+			return new UsuarioDTO(false, "Problemas na gravação do Usuario");
 
-		return new ProfessorDTO(true, "Professor gravado com sucesso", tProfessor);
+		return new UsuarioDTO(true, "Usuario gravado com sucesso", tUsuario);
 	}
 
-	// Método para recuperar um professor
-	public static ProfessorDTO recuperar(int pMatricula) {
-		ProfessorDAO tDao = DaoFactory.getProfessorDAO();
-		Professor tProfessor = tDao.recovery(pMatricula);
+	// Método para recuperar um Usuario
+	public static UsuarioDTO recuperar(int pMatricula) {
+		UsuarioDAO tDao = DaoFactory.getUsuarioDAO();
+		Usuario tUsuario = tDao.recovery(pMatricula);
 
-		if (tProfessor == null)
-			return new ProfessorDTO(false, "Professor não existe no cadastro");
+		if (tUsuario == null)
+			return new UsuarioDTO(false, "Usuario não existe no cadastro");
 
-		return new ProfessorDTO(true, "Professor lido com sucesso", tProfessor);
+		return new UsuarioDTO(true, "Usuario lido com sucesso", tUsuario);
 	}
 
-	// Método para atualizar um professor
-	public static ProfessorDTO atualizar(Professor pProfessor) {
-		if (pProfessor == null)
-			return new ProfessorDTO(false, "Tentativa de atualizar um professor nulo");
+	// Método para atualizar um Usuario
+	public static UsuarioDTO atualizar(Usuario pUsuario) {
+		if (pUsuario == null)
+			return new UsuarioDTO(false, "Tentativa de atualizar um Usuario nulo");
 
-		ProfessorDAO tDao = DaoFactory.getProfessorDAO();
-		Professor tProfessor = tDao.update(pProfessor);
+		UsuarioDAO tDao = DaoFactory.getUsuarioDAO();
+		Usuario tUsuario = tDao.update(pUsuario);
 
-		if (tProfessor == null)
-			return new ProfessorDTO(false, "Professor não existe no cadastro");
+		if (tUsuario == null)
+			return new UsuarioDTO(false, "Usuario não existe no cadastro");
 
-		return new ProfessorDTO(true, "Professor regravado com sucesso", tProfessor);
+		return new UsuarioDTO(true, "Usuario regravado com sucesso", tUsuario);
 	}
 
-	// Método para deletar um professor
-	public static ProfessorDTO remover(int pMatricula) {
-		ProfessorDAO tDao = DaoFactory.getProfessorDAO();
+	// Método para deletar um Usuario
+	public static UsuarioDTO remover(int pMatricula) {
+		UsuarioDAO tDao = DaoFactory.getUsuarioDAO();
 		if (!tDao.delete(pMatricula))
-			return new ProfessorDTO(false, "Professor não existe no cadastro");
+			return new UsuarioDTO(false, "Usuario não existe no cadastro");
 
-		return new ProfessorDTO(true, "Professor removido com sucesso");
+		return new UsuarioDTO(true, "Usuario removido com sucesso");
 	}
 
-	// Método para pesquisar todos os professors
-	public static ProfessorDTO pesquisar() {
-		ProfessorDAO tDao = DaoFactory.getProfessorDAO();
-		List<Professor> tLista = tDao.search();
+	// Método para pesquisar todos os Usuarios
+	public static UsuarioDTO pesquisar() {
+		UsuarioDAO tDao = DaoFactory.getUsuarioDAO();
+		List<Usuario> tLista = tDao.search();
 
 		if (tLista.isEmpty())
-			return new ProfessorDTO(false, "Lista de professors vazia");
+			return new UsuarioDTO(false, "Lista de Usuarios vazia");
 
-		return new ProfessorDTO(true, "Lista de professors recuperada", tLista);
+		return new UsuarioDTO(true, "Lista de Usuarios recuperada", tLista);
 	}
 
-	// Método para pesquisar por nome todos os professors
-	public static ProfessorDTO pesquisarPorNome(String pNome) {
+	// Método para pesquisar por nome todos os Usuarios
+	public static UsuarioDTO pesquisarPorNome(String pNome) {
 		if (pNome == null)
 			return pesquisar();
 
-		ProfessorDAO tDao = DaoFactory.getProfessorDAO();
-		List<Professor> tLista = tDao.searchByNome(pNome);
+		UsuarioDAO tDao = DaoFactory.getUsuarioDAO();
+		List<Usuario> tLista = tDao.searchByNome(pNome);
 
 		if (tLista.isEmpty())
-			return new ProfessorDTO(false, "Nenhum registro encontrado com nome '" + pNome + "'");
+			return new UsuarioDTO(false, "Nenhum registro encontrado com nome '" + pNome + "'");
 
-		return new ProfessorDTO(true, "Lista de professors recuperada", tLista);
+		return new UsuarioDTO(true, "Lista de Usuarios recuperada", tLista);
 	}
 }

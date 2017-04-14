@@ -1,5 +1,5 @@
 /*
- * ProfessorDTO.java
+ * UsuarioDTO.java
  *
  * Classe que representa o retorno do servi�o de manuten��o de cidades.
  *
@@ -13,34 +13,34 @@ package br.ensalamento.dto;
 
 import java.util.List;
 
-import br.ensalamento.model.Professor;
+import br.ensalamento.model.Usuario;
 
-public class ProfessorDTO extends AbstractDTO<Professor>
+public class UsuarioDTO extends AbstractDTO<Usuario>
 {
     /* Construtores da classe */
-    public ProfessorDTO(boolean pOk, String pMensagem)
+    public UsuarioDTO(boolean pOk, String pMensagem)
     {
         super(pOk, pMensagem);
     }
 
-    public ProfessorDTO(boolean pOk, String pMensagem, Professor pProfessor)
+    public UsuarioDTO(boolean pOk, String pMensagem, Usuario pUsuario)
     {
-        super(pOk, pMensagem, pProfessor);
+        super(pOk, pMensagem, pUsuario);
     }
 
-    public ProfessorDTO(boolean pOk, String pMensagem, List<Professor> pLista)
+    public UsuarioDTO(boolean pOk, String pMensagem, List<Usuario> pLista)
     {
         super(pOk, pMensagem, pLista);
     }
 
     /* M�todos de acesso */
-    public Professor getProfessor()
+    public Usuario getUsuario()
     {
         return getObjeto();
     }
 
-    public void setProfessor(Professor pProfessor)
+    public void setUsuario(Usuario pUsuario)
     {
-        setObjeto(pProfessor);
+        setObjeto(pUsuario);
     }
 }

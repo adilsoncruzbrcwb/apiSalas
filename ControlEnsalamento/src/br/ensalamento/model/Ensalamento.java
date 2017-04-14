@@ -15,7 +15,7 @@ import br.ensalamento.enums.Turno;
 
 @Entity
 @Table(name = "ENSALAMENTO")
-public class Ensalamento extends Professor implements Serializable, Cloneable {
+public class Ensalamento extends Usuario implements Serializable, Cloneable {
 	/* Atributos estáticos */
 	private static final long serialVersionUID = 2179092916642396463L;
 
