@@ -26,8 +26,7 @@ public class Disciplina implements Serializable, Cloneable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column (name = "IDDISCIPLINA")
-	public int getIdDisciplina() {
-		return idDisciplina;
+	public int getIdDisciplina() { return idDisciplina;
 	}
 
 	public void setIdDisciplina(int idDisciplina) {

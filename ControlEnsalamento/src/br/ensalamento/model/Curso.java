@@ -19,9 +19,9 @@ public class Curso implements Serializable, Cloneable {
 	private static final long serialVersionUID = 3162938596466740097L;
 
 	/* Atributos normais */
-	private int idCurso;
-	private String nomeCurso;
-	private Turma mTurma;
+	private int 	idCurso;
+	private String 	nomeCurso;
+	private Turma 	mTurma;
 
 	public Curso() { super(); }
 

@@ -9,12 +9,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+
 
 import br.ensalamento.enums.Turno;
 
-@Entity
-@Table(name = "ENSALAMENTO")
+@Entity(name = "Ensalamento")
 public class Ensalamento extends Usuario implements Serializable, Cloneable {
 	/* Atributos estáticos */
 	private static final long serialVersionUID = 2179092916642396463L;
@@ -37,55 +36,25 @@ public class Ensalamento extends Usuario implements Serializable, Cloneable {
 	private String diaDaSemana;
 
 	@Column(name = "DISPONIBILIDADE")
-	private String disponibilidade;
+	private Boolean disponibilidade;
 
-	public int getIdEnsalamento() {
-		return idEnsalamento;
-	}
+	public int getIdEnsalamento() { return idEnsalamento; }
+	public void setIdEnsalamento(int idEnsalamento) { this.idEnsalamento = idEnsalamento; }
 
-	public void setIdEnsalamento(int idEnsalamento) {
-		this.idEnsalamento = idEnsalamento;
-	}
+	public Turno getTurno() { return turno; }
+	public void setTurno(Turno turno) { this.turno = turno; }
 
-	public Turno getTurno() {
-		return turno;
-	}
+	public Date getDatainicio() { return datainicio; }
+	public void setDatainicio(Date datainicio) { this.datainicio = datainicio; }
 
-	public void setTurno(Turno turno) {
-		this.turno = turno;
-	}
+	public Date getDataFim() { return dataFim; }
+	public void setDataFim(Date dataFim) { this.dataFim = dataFim; }
 
-	public Date getDatainicio() {
-		return datainicio;
-	}
+	public String getDiaDaSemana() { return diaDaSemana; }
+	public void setDiaDaSemana(String diaDaSemana) { this.diaDaSemana = diaDaSemana; }
 
-	public void setDatainicio(Date datainicio) {
-		this.datainicio = datainicio;
-	}
-
-	public Date getDataFim() {
-		return dataFim;
-	}
-
-	public void setDataFim(Date dataFim) {
-		this.dataFim = dataFim;
-	}
-
-	public String getDiaDaSemana() {
-		return diaDaSemana;
-	}
-
-	public void setDiaDaSemana(String diaDaSemana) {
-		this.diaDaSemana = diaDaSemana;
-	}
-
-	public String getDisponibilidade() {
-		return disponibilidade;
-	}
-
-	public void setDisponibilidade(String disponibilidade) {
-		this.disponibilidade = disponibilidade;
-	}
+	public Boolean getDisponibilidade() { return disponibilidade; }
+	public void setDisponibilidade(Boolean disponibilidade) { this.disponibilidade = disponibilidade; }
 
 	@Override
 	public int hashCode() {

@@ -17,62 +17,59 @@ public class Usuario implements Serializable, Cloneable {
 	/* Atributos estáticos */
 	private static final long serialVersionUID = 2179092916642396463L;
 
-	/* Atributos normais */
-	private int matricula;
-	private String nomeCompleto;
-	private String tipoUsuario;
-	private String email;
-	private String senha;
-	private int sala;
-	private int turma;
-	
-	private String status;
-	private Ensalamento ensalamento;
-
 	/* Métodos de Acesso */
-	@Id()
+	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "MATRICULA")
+	private int matricula;
 	public int getMatricula() {return matricula;}
 	public void setMatricula(int pMatricula) {matricula = pMatricula;}
 
 	@Column (name = "STATUS")
-	public String getStatus() {return status;}
-	public void setStatus(String status) {this.status = status;}
+	private Boolean status;
+	public Boolean getStatus() {return status;}
+	public void setStatus(Boolean status) {this.status = status;}
 
-	@ManyToOne()
-	@JoinColumn(name = "PROFESSOR_ENSALAMENTO") // Nome da chave estrangeira na tabela
+	@ManyToOne
+	@JoinColumn(name = "USUARIO_ENSALAMENTO") // Nome da chave estrangeira na tabela
+	private Ensalamento ensalamento;
 	public Ensalamento getEnsalamento() {return ensalamento;}
 	public void setEnsalamento(Ensalamento ensalamento) {this.ensalamento = ensalamento;}
 
 	@Column (name = "NomeCompleto")
+	private String nomeCompleto;
 	public String getNomeCompleto() {return nomeCompleto;}
 	public void setNomeCompleto(String nomeCompleto) {this.nomeCompleto = nomeCompleto;}
 	
 	@Column (name = "TipoUsuario")
+	private String tipoUsuario;
 	public String getTipoUsuario() {return tipoUsuario;}
 	public void setTipoUsuario(String tipoUsuario) {this.tipoUsuario = tipoUsuario;}
 	
 	@Column (name = "Email")
+	private String email;
 	public String getEmail() {return email;}
 	public void setEmail(String email) {this.email = email;}
 	
 	@Column (name = "Senha")
+	private String senha;
 	public String getSenha() {return senha;}
 	public void setSenha(String senha) {this.senha = senha;}
 	
 	@ManyToOne()
 	@JoinColumn(name = "USUARIO_SALA") // Nome da chave estrangeira na tabela
-	public int getSala() {return sala;}
-	public void setSala(int sala) {this.sala = sala;}
+	private Sala sala;
+	public Sala getSala() {return sala;}
+	public void setSala(Sala sala) {this.sala = sala;}
 	
 	@ManyToOne()
 	@JoinColumn(name = "USUARIO_TURMA") // Nome da chave estrangeira na tabela
-	public int getTurma() {return turma;}
-	public void setTurma(int turma) {this.turma = turma;}
+	private Turma turma;
+	public Turma getTurma() {return turma;}
+	public void setTurma(Turma turma) {this.turma = turma;}
 
 	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode() -- Métodos da classe Object
+	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
@@ -82,11 +79,11 @@ public class Usuario implements Serializable, Cloneable {
 		result = prime * result + ((ensalamento == null) ? 0 : ensalamento.hashCode());
 		result = prime * result + matricula;
 		result = prime * result + ((nomeCompleto == null) ? 0 : nomeCompleto.hashCode());
-		result = prime * result + sala;
+		result = prime * result + ((sala == null) ? 0 : sala.hashCode());
 		result = prime * result + ((senha == null) ? 0 : senha.hashCode());
 		result = prime * result + ((status == null) ? 0 : status.hashCode());
 		result = prime * result + ((tipoUsuario == null) ? 0 : tipoUsuario.hashCode());
-		result = prime * result + turma;
+		result = prime * result + ((turma == null) ? 0 : turma.hashCode());
 		return result;
 	}
 	/* (non-Javadoc)
@@ -118,7 +115,10 @@ public class Usuario implements Serializable, Cloneable {
 				return false;
 		} else if (!nomeCompleto.equals(other.nomeCompleto))
 			return false;
-		if (sala != other.sala)
+		if (sala == null) {
+			if (other.sala != null)
+				return false;
+		} else if (!sala.equals(other.sala))
 			return false;
 		if (senha == null) {
 			if (other.senha != null)
@@ -135,11 +135,13 @@ public class Usuario implements Serializable, Cloneable {
 				return false;
 		} else if (!tipoUsuario.equals(other.tipoUsuario))
 			return false;
-		if (turma != other.turma)
+		if (turma == null) {
+			if (other.turma != null)
+				return false;
+		} else if (!turma.equals(other.turma))
 			return false;
 		return true;
 	}
-
 	@Override
 	public Object clone() throws CloneNotSupportedException {return super.clone();}
 
