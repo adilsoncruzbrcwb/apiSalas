@@ -31,7 +31,7 @@ public class Curso implements Serializable, Cloneable {
 		setNomeCurso(pTurma); 
 		}
 
-	@Id()
+	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "IDCURSO")
 	public int getIdCurso() { return idCurso; }

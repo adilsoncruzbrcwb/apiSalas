@@ -16,12 +16,20 @@ import javax.persistence.Table;
 public class Usuario implements Serializable, Cloneable {
 	/* Atributos estáticos */
 	private static final long serialVersionUID = 2179092916642396463L;
-
+	
+	private int matricula;
+	private Ensalamento ensalamento;	
+	private String nomeCompleto;
+	private String tipoUsuario;
+	private String email;
+	private String senha;
+	private Sala sala;
+	private Turma turma;
+	
 	/* Métodos de Acesso */
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "MATRICULA")
-	private int matricula;
 	public int getMatricula() {return matricula;}
 	public void setMatricula(int pMatricula) {matricula = pMatricula;}
 
@@ -32,39 +40,32 @@ public class Usuario implements Serializable, Cloneable {
 
 	@ManyToOne
 	@JoinColumn(name = "USUARIO_ENSALAMENTO") // Nome da chave estrangeira na tabela
-	private Ensalamento ensalamento;
 	public Ensalamento getEnsalamento() {return ensalamento;}
 	public void setEnsalamento(Ensalamento ensalamento) {this.ensalamento = ensalamento;}
 
 	@Column (name = "NomeCompleto")
-	private String nomeCompleto;
 	public String getNomeCompleto() {return nomeCompleto;}
 	public void setNomeCompleto(String nomeCompleto) {this.nomeCompleto = nomeCompleto;}
 	
 	@Column (name = "TipoUsuario")
-	private String tipoUsuario;
 	public String getTipoUsuario() {return tipoUsuario;}
 	public void setTipoUsuario(String tipoUsuario) {this.tipoUsuario = tipoUsuario;}
 	
 	@Column (name = "Email")
-	private String email;
 	public String getEmail() {return email;}
 	public void setEmail(String email) {this.email = email;}
 	
 	@Column (name = "Senha")
-	private String senha;
 	public String getSenha() {return senha;}
 	public void setSenha(String senha) {this.senha = senha;}
 	
 	@ManyToOne()
 	@JoinColumn(name = "USUARIO_SALA") // Nome da chave estrangeira na tabela
-	private Sala sala;
 	public Sala getSala() {return sala;}
 	public void setSala(Sala sala) {this.sala = sala;}
 	
 	@ManyToOne()
 	@JoinColumn(name = "USUARIO_TURMA") // Nome da chave estrangeira na tabela
-	private Turma turma;
 	public Turma getTurma() {return turma;}
 	public void setTurma(Turma turma) {this.turma = turma;}
 

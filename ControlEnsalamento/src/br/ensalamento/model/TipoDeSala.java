@@ -17,21 +17,24 @@ public class TipoDeSala implements Serializable, Cloneable {
 	/* Atributos estáticos */
 	private static final long serialVersionUID = 5878830439335072748L;
 	
+
+	private int idTipoSala;
+	private String nomeTipo;
+	private Sala mSala;
+
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "IDTIPOSALA")
-	private int idTipoSala;
 	public int getIdTipoSala() { return idTipoSala; }
 	public void setIdTipoSala(int idTipoSala) { this.idTipoSala = idTipoSala; }
-
+	
 	@Column(name = "NOMETIPO")
-	private String nomeTipo;
 	public String getNomeTipo() { return nomeTipo; }
 	public void setNomeTipo(String nomeTipo) { this.nomeTipo = nomeTipo; }
-
+	
 	@ManyToOne()
 	@JoinColumn(name = "tipo_sala") // Nome da chave estrangeira na tabela
-	private Sala mSala;
 	public Sala getmSala() { return mSala; }
 	public void setmSala(Sala mSala) { this.mSala = mSala; }
 

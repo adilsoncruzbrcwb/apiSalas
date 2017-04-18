@@ -18,41 +18,36 @@ public class Ensalamento extends Usuario implements Serializable, Cloneable {
 	/* Atributos estáticos */
 	private static final long serialVersionUID = 2179092916642396463L;
 
+	private int idEnsalamento;
+	private Turno turno;
+	private Date datainicio;
+	private Date dataFim;
+	private String diaDaSemana;
+	private Boolean disponibilidade;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "IDENSALAMENTO")
-	private int idEnsalamento;
-
-	@Column(name = "TURNO")
-	private Turno turno;
-
-	@Column(name = "DATAINICIO")
-	private Date datainicio;
-
-	@Column(name = "DATAFIM")
-	private Date dataFim;
-
-	@Column(name = "DIADASEMANA")
-	private String diaDaSemana;
-
-	@Column(name = "DISPONIBILIDADE")
-	private Boolean disponibilidade;
-
 	public int getIdEnsalamento() { return idEnsalamento; }
 	public void setIdEnsalamento(int idEnsalamento) { this.idEnsalamento = idEnsalamento; }
-
+	
+	@Column(name = "TURNO")
 	public Turno getTurno() { return turno; }
 	public void setTurno(Turno turno) { this.turno = turno; }
-
+	
+	@Column(name = "DATAINICIO")
 	public Date getDatainicio() { return datainicio; }
 	public void setDatainicio(Date datainicio) { this.datainicio = datainicio; }
-
+	
+	@Column(name = "DATAFIM")
 	public Date getDataFim() { return dataFim; }
 	public void setDataFim(Date dataFim) { this.dataFim = dataFim; }
-
+	
+	@Column(name = "DIADASEMANA")
 	public String getDiaDaSemana() { return diaDaSemana; }
 	public void setDiaDaSemana(String diaDaSemana) { this.diaDaSemana = diaDaSemana; }
-
+	
+	@Column(name = "DISPONIBILIDADE")
 	public Boolean getDisponibilidade() { return disponibilidade; }
 	public void setDisponibilidade(Boolean disponibilidade) { this.disponibilidade = disponibilidade; }
 

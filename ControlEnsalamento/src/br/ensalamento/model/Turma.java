@@ -18,22 +18,23 @@ public class Turma implements Serializable, Cloneable {
 	/* Atributos estáticos */
 	private static final long serialVersionUID = 3162938596466740097L;
 
+	private String idTurma;
+	private int quantidadeAlunos;
+	private Ensalamento ensalamento;
+	
 	/* Métodos de acesso */
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "IDTURMA")
-	private String idTurma;
 	public String getIdTurma() { return idTurma; }
 	public void setIdTurma(String idTurma) { this.idTurma = idTurma; }
 
 	@Column(name = "QUANTIDADEALUNOS")
-	private int quantidadeAlunos;
 	public int getQuantidadeAlunos() { return quantidadeAlunos; }
 	public void setQuantidadeAlunos(int quantidadeAlunos) { this.quantidadeAlunos = quantidadeAlunos; }
 	
 	@ManyToOne()
 	@JoinColumn(name = "TURMA_ENSALAMENTO") // Nome da chave estrangeira na tabela
-	private Ensalamento ensalamento;
 	public Ensalamento getEnsalamento() { return ensalamento; }
 	public void setEnsalamento(Ensalamento ensalamento) { this.ensalamento = ensalamento; }
 
