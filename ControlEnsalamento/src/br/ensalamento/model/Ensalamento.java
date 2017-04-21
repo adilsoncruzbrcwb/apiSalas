@@ -6,6 +6,8 @@ import javax.persistence.Table;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import br.ensalamento.enums.Turno;
 
@@ -24,7 +26,7 @@ public class Ensalamento implements Serializable, Cloneable {
 	private Turno turno;
 
 	@Id
-	//@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "IDENSALAMENTO")
 	public int getIdEnsalamento() { return idEnsalamento; }
 	public void setIdEnsalamento(int idEnsalamento) { this.idEnsalamento = idEnsalamento; }
