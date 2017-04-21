@@ -13,13 +13,7 @@
 		<property name="hbm2ddl.auto">create</property>
 
 		<!-- Mapeamento das Classes -->
-		<mapping class="br.ensalamento.model.Ensalamento"/>
-		<mapping class="br.ensalamento.model.Curso" />
-		<mapping class="br.ensalamento.model.Disciplina" />
-		<mapping class="br.ensalamento.model.Sala" />
-		<mapping class="br.ensalamento.model.Turma" />
-		<mapping class="br.ensalamento.model.TipoDeSala" />
-		<mapping class="br.ensalamento.model.Usuario" />
+		<mapping class="br.ensalamento.model.Ensalamento" />
 		
 
 	</session-factory>
