@@ -24,7 +24,7 @@ public class TipoDeSala implements Serializable, Cloneable {
 
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "IDTIPOSALA")
 	public int getIdTipoSala() { return idTipoSala; }
 	public void setIdTipoSala(int idTipoSala) { this.idTipoSala = idTipoSala; }

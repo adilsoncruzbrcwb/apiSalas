@@ -1,7 +1,6 @@
 package br.ensalamento.model;
 
 import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,7 +23,7 @@ public class Disciplina implements Serializable, Cloneable {
 	
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY )
 	@Column (name = "IDDISCIPLINA")
 	public int getIdDisciplina() { return idDisciplina;
 	}

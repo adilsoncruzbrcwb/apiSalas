@@ -24,7 +24,7 @@ public class Turma implements Serializable, Cloneable {
 	
 	/* Métodos de acesso */
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "IDTURMA")
 	public String getIdTurma() { return idTurma; }
 	public void setIdTurma(String idTurma) { this.idTurma = idTurma; }

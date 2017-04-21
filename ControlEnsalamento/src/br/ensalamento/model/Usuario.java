@@ -18,7 +18,7 @@ public class Usuario implements Serializable, Cloneable {
 	private static final long serialVersionUID = 2179092916642396463L;
 	
 	private int matricula;
-	private Ensalamento ensalamento;	
+ 	private Ensalamento ensalamento;	
 	private String nomeCompleto;
 	private String tipoUsuario;
 	private String email;
@@ -28,7 +28,7 @@ public class Usuario implements Serializable, Cloneable {
 	
 	/* Métodos de Acesso */
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "MATRICULA")
 	public int getMatricula() {return matricula;}
 	public void setMatricula(int pMatricula) {matricula = pMatricula;}

@@ -16,14 +16,13 @@ import javax.persistence.Table;
 public class Sala implements Serializable, Cloneable {
 	/* Atributos estáticos */
 	private static final long serialVersionUID = 5878830439335072748L;
-
 	private int idSala;
 	private int capacidade;
 	private Ensalamento ensalamento;
 	
 	/* Métodos de acesso */
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column (name = "IDSALA")
 	public int getIdSala() {return idSala;}
 	public void setIdSala(int idSala) {	this.idSala = idSala;}

@@ -2,7 +2,6 @@ package br.ensalamento.model;
 
 import java.io.Serializable;
 import java.util.Comparator;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,7 +31,7 @@ public class Curso implements Serializable, Cloneable {
 		}
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "IDCURSO")
 	public int getIdCurso() { return idCurso; }
 	public void setIdCurso(int pIdCurso) { idCurso = pIdCurso; }

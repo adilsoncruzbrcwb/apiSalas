@@ -2,31 +2,29 @@
 package br.ensalamento.model;
 
 import java.io.Serializable;
+import javax.persistence.Table;
 import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-
 import br.ensalamento.enums.Turno;
 
+@Table
 @Entity(name = "Ensalamento")
-public class Ensalamento extends Usuario implements Serializable, Cloneable {
+public class Ensalamento implements Serializable, Cloneable {
 	/* Atributos estáticos */
 	private static final long serialVersionUID = 2179092916642396463L;
 
 	private int idEnsalamento;
-	private Turno turno;
+	//private Turno turno;
 	private Date datainicio;
 	private Date dataFim;
 	private String diaDaSemana;
 	private Boolean disponibilidade;
+	private Turno turno;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	//@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "IDENSALAMENTO")
 	public int getIdEnsalamento() { return idEnsalamento; }
 	public void setIdEnsalamento(int idEnsalamento) { this.idEnsalamento = idEnsalamento; }
