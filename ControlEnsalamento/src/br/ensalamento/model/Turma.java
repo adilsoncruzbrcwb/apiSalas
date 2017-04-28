@@ -18,7 +18,8 @@ public class Turma implements Serializable, Cloneable {
 	/* Atributos estáticos */
 	private static final long serialVersionUID = 3162938596466740097L;
 
-	private String idTurma;
+	private int idTurma;
+	private String NumerodaSala;
 	private int quantidadeAlunos;
 	private Ensalamento ensalamento;
 	
@@ -26,9 +27,13 @@ public class Turma implements Serializable, Cloneable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "IDTURMA")
-	public String getIdTurma() { return idTurma; }
-	public void setIdTurma(String idTurma) { this.idTurma = idTurma; }
-
+	public int getIdTurma() { return idTurma; }
+	public void setIdTurma(int idTurma) { this.idTurma = idTurma; }
+	
+	@Column(name = "NUMERODASALA")
+	public String getNumerodaSala() {return NumerodaSala;}
+	public void setNumerodaSala(String numerodaSala) {NumerodaSala = numerodaSala;}
+	
 	@Column(name = "QUANTIDADEALUNOS")
 	public int getQuantidadeAlunos() { return quantidadeAlunos; }
 	public void setQuantidadeAlunos(int quantidadeAlunos) { this.quantidadeAlunos = quantidadeAlunos; }
@@ -42,7 +47,7 @@ public class Turma implements Serializable, Cloneable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((idTurma == null) ? 0 : idTurma.hashCode());
+		result = prime * result + idTurma;
 		result = prime * result + quantidadeAlunos;
 		return result;
 	}
@@ -56,10 +61,7 @@ public class Turma implements Serializable, Cloneable {
 		if (getClass() != obj.getClass())
 			return false;
 		Turma other = (Turma) obj;
-		if (idTurma == null) {
-			if (other.idTurma != null)
-				return false;
-		} else if (!idTurma.equals(other.idTurma))
+		if (idTurma != other.idTurma)
 			return false;
 		return true;
 	}
@@ -76,5 +78,6 @@ public class Turma implements Serializable, Cloneable {
 		builder.append("]");
 		return builder.toString();
 	}
+
 
 }
