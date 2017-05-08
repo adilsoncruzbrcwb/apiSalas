@@ -4,11 +4,11 @@
 <hibernate-configuration>
 	<session-factory>
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="hibernate.connection.username">emsalafacil</property>
-		<property name="hibernate.connection.password">ih3kaerdwqcq</property>
-		<property name="hibernate.connection.url">jdbc:mysql://emsalafacildb.cidlb1hru15j.us-west-2.rds.amazonaws.com</property>
+		<property name="hibernate.connection.username">emsala</property>
+		<property name="hibernate.connection.password">professorlindo</property>
+		<property name="hibernate.connection.url">jdbc:mysql://tretamaligna.com.br</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-		<property name="hibernate.default_schema">emsalafacildb</property>
+		<property name="hibernate.default_schema">emsala</property>
 		<property name="connection.pool_size">1</property>
 		<property name="hibernate.show_sql">true</property>
 		<property name="hbm2ddl.auto">create</property>
@@ -22,8 +22,6 @@
 		<mapping class="br.ensalamento.model.TipoDeSala" />
 		<mapping class="br.ensalamento.model.Turma" />
 		<mapping class="br.ensalamento.model.Usuario" />
-
-		
 
 	</session-factory>
 </hibernate-configuration>
