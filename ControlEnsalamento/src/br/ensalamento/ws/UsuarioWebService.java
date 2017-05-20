@@ -14,6 +14,7 @@ import br.ensalamento.controller.UsuarioController;
 import br.ensalamento.dto.UsuarioDTO;
 import br.ensalamento.model.Usuario;
 
+@Path ("/Usuario")
 public class UsuarioWebService {
 
 	@POST
