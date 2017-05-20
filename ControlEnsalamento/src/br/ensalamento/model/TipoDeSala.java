@@ -18,9 +18,9 @@ public class TipoDeSala implements Serializable, Cloneable {
 	private static final long serialVersionUID = 5878830439335072748L;
 	
 
-	private int idTipoSala;
-	private String nomeTipo;
-	private Sala mSala;
+	private int 	idTipoSala;
+	private String 	nomeTipo;
+	private Sala	mSala;
 
 	
 	@Id

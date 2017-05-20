@@ -57,7 +57,6 @@ public class TurmaController {
 	}
 	
 	public static TurmaDTO searchByProfessor (int pMatriculaProfessor){
-		
 		if (pMatriculaProfessor == 0)
 			return pesquisar();
 		

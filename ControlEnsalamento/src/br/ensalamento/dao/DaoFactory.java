@@ -9,34 +9,18 @@ import br.ensalamento.dao.hibernate.TipoDeSalaHibernateDAO;
 import br.ensalamento.dao.hibernate.TurmaHibernateDAO;
 
 public class DaoFactory {
-	public static EnsalmentosDAO getEnsalamentoDAO() {
-		return new EnsalamentosHibernateDAO();
-	}
+	public static EnsalmentosDAO getEnsalamentoDAO() { return new EnsalamentosHibernateDAO(); }
 
-	public static DisciplinaDAO getDisciplinaDAO() {
-		return new DisciplinaHibernateDAO();
-	}
+	public static DisciplinaDAO getDisciplinaDAO() { return new DisciplinaHibernateDAO(); }
 
-	public static UsuarioDAO getUsuarioDAO() {
-		return new UsuarioHibernateDAO();
-	}
+	public static UsuarioDAO getUsuarioDAO() { return new UsuarioHibernateDAO(); }
 
-	public static CursoDao getCursoDao() {
-		return new CursoHibernateDAO();
-	}
+	public static CursoDao getCursoDao() { return new CursoHibernateDAO(); }
 
-	public static SalasDAO getSalaDAO() {
-		return new SalasHibernateDAO();
-	}
+	public static SalasDAO getSalaDAO() { return new SalasHibernateDAO(); }
 
-	public static TipoDeSalaDAO geTipoDeSalaDAO() {
-		return new TipoDeSalaHibernateDAO();
-	}
+	public static TipoDeSalaDAO geTipoDeSalaDAO() { return new TipoDeSalaHibernateDAO(); }
 
-	public static TurmaDAO geTurmaDAO() {
-		return new TurmaHibernateDAO();
-	}
-
-
+	public static TurmaDAO geTurmaDAO() { return new TurmaHibernateDAO(); }
 
 }

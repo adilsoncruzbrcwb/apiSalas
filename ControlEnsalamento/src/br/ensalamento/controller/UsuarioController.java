@@ -19,7 +19,6 @@ import br.ensalamento.dto.UsuarioDTO;
 import br.ensalamento.model.Usuario;
 
 public class UsuarioController {
-	// Método para criar um Usuario
 	public static UsuarioDTO cadastrar(Usuario pUsuario) {
 		if (pUsuario == null)
 			return new UsuarioDTO(false, "Tentativa de inserir um Usuario nulo");
@@ -33,7 +32,6 @@ public class UsuarioController {
 		return new UsuarioDTO(true, "Usuario gravado com sucesso", tUsuario);
 	}
 
-	// Método para recuperar um Usuario
 	public static UsuarioDTO recuperar(int pMatricula) {
 		UsuarioDAO tDao = DaoFactory.getUsuarioDAO();
 		Usuario tUsuario = tDao.recovery(pMatricula);
@@ -44,7 +42,6 @@ public class UsuarioController {
 		return new UsuarioDTO(true, "Usuario lido com sucesso", tUsuario);
 	}
 
-	// Método para atualizar um Usuario
 	public static UsuarioDTO atualizar(Usuario pUsuario) {
 		if (pUsuario == null)
 			return new UsuarioDTO(false, "Tentativa de atualizar um Usuario nulo");
@@ -58,7 +55,6 @@ public class UsuarioController {
 		return new UsuarioDTO(true, "Usuario regravado com sucesso", tUsuario);
 	}
 
-	// Método para deletar um Usuario
 	public static UsuarioDTO remover(int pMatricula) {
 		UsuarioDAO tDao = DaoFactory.getUsuarioDAO();
 		if (!tDao.delete(pMatricula))
@@ -67,7 +63,6 @@ public class UsuarioController {
 		return new UsuarioDTO(true, "Usuario removido com sucesso");
 	}
 
-	// Método para pesquisar todos os Usuarios
 	public static UsuarioDTO pesquisar() {
 		UsuarioDAO tDao = DaoFactory.getUsuarioDAO();
 		List<Usuario> tLista = tDao.search();
@@ -78,7 +73,6 @@ public class UsuarioController {
 		return new UsuarioDTO(true, "Lista de Usuarios recuperada", tLista);
 	}
 
-	// Método para pesquisar por nome todos os Usuarios
 	public static UsuarioDTO pesquisarPorNome(String pNome) {
 		if (pNome == null)
 			return pesquisar();

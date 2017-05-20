@@ -80,19 +80,12 @@ public class Curso implements Serializable, Cloneable {
 		return true;
 	}
 
-	// public int compateTo(Curso pObj){
-	// return getIdCurso().compareTo(pObj.getIdCurso());
-	// }
 	public static class NomeComparador implements Comparator<Curso> {
 		@Override
-		public int compare(Curso pObj1, Curso pObj2) {
-			return pObj1.getNomeCurso().compareTo(pObj2.getNomeCurso());
-		}
+		public int compare(Curso pObj1, Curso pObj2) { return pObj1.getNomeCurso().compareTo(pObj2.getNomeCurso());}
 	}
 
 	@Override
-	protected Object clone() throws CloneNotSupportedException {
-		return super.clone();
-	}
+	protected Object clone() throws CloneNotSupportedException { return super.clone();}
 
 }

@@ -20,43 +20,31 @@ public class DisciplinaWebService {
 	@Path("/Cadastrar")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public DisciplinaDTO cadastrar(Disciplina pDisciplina) {
-		return DisciplinaController.cadastrar(pDisciplina);
-	}
+	public DisciplinaDTO cadastrar(Disciplina pDisciplina) { return DisciplinaController.cadastrar(pDisciplina); }
 
 	@GET
 	@Path("/Recuperar/{idDisciplina}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public DisciplinaDTO recuperar(@PathParam("idDisciplina") int pIdDisciplina) {
-		return DisciplinaController.recuperar(pIdDisciplina);
-	}
+	public DisciplinaDTO recuperar(@PathParam("idDisciplina") int pIdDisciplina) { return DisciplinaController.recuperar(pIdDisciplina); }
 
 	@PUT
 	@Path("/Atualizar")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public DisciplinaDTO atualizar(Disciplina pAluno) {
-		return DisciplinaController.atualizar(pAluno);
-	}
+	public DisciplinaDTO atualizar(Disciplina pAluno) { return DisciplinaController.atualizar(pAluno); }
 
 	@DELETE
 	@Path("/Remover/{idDisciplina}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public DisciplinaDTO remover(@PathParam("idDisciplina") int pDisciplina) {
-		return DisciplinaController.remover(pDisciplina);
-	}
+	public DisciplinaDTO remover(@PathParam("idDisciplina") int pDisciplina) { return DisciplinaController.remover(pDisciplina); }
 
 	@GET
 	@Path("/Pesquisar")
 	@Produces(MediaType.APPLICATION_JSON)
-	public DisciplinaDTO pesquisar() {
-		return DisciplinaController.pesquisar();
-	}
+	public DisciplinaDTO pesquisar() { return DisciplinaController.pesquisar(); }
 
 	@GET
 	@Path("/PesquisarPorNome/{nome}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public DisciplinaDTO pesquisarPorNome(@PathParam("nome") String pNome) {
-		return DisciplinaController.pesquisarPorNome(pNome);
-	}
+	public DisciplinaDTO pesquisarPorNome(@PathParam("nome") String pNome) { return DisciplinaController.pesquisarPorNome(pNome); }
 }

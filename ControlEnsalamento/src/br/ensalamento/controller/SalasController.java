@@ -8,7 +8,7 @@ import br.ensalamento.dto.SalasDTO;
 import br.ensalamento.model.Sala;
 
 public class SalasController {
-//	Cadastrar
+
 	public static SalasDTO cadastrar(Sala pSalas) {
 		if (pSalas == null)
 			return new SalasDTO(false, "Nula");
@@ -20,7 +20,7 @@ public class SalasController {
 			return new SalasDTO(false, "problema gravacao", tSala);
 		return new SalasDTO(true, "Cadastrado", tSala);
 	}
-//	Recuperar
+
 	public static SalasDTO recuperar(int pCodigo) {
 		SalasDAO tDao = DaoFactory.getSalaDAO();
 		Sala tCurso = tDao.recovery(pCodigo);
@@ -30,7 +30,6 @@ public class SalasController {
 
 		return new SalasDTO(true, "Sucesso", tCurso);
 	}
-//	Atualizar
 	public static SalasDTO atualizar (Sala pSala){
 		if (pSala == null)
 			return new SalasDTO(false, "Nula");
@@ -42,7 +41,6 @@ public class SalasController {
 			return new SalasDTO(false, "não existe");
 		return new SalasDTO(true, "Atualizado", tCurso);
 	}
-//	Deletar
 	public static SalasDTO remover (int pCodigo){
 		SalasDAO tDao = DaoFactory.getSalaDAO();
 		if (!tDao.delete(pCodigo))
@@ -50,7 +48,6 @@ public class SalasController {
 		return new SalasDTO(true, "removido");
 		
 	}
-// Pesquisar
 	public static SalasDTO pesquisar(){
 		SalasDAO tDao = DaoFactory.getSalaDAO();
 		List<Sala> tLista = tDao.search();
@@ -62,9 +59,7 @@ public class SalasController {
 		
 	}
 	
-// Pesquisar por Nome
 	public static SalasDTO searchBySalas(int pCodigoSala) {
-		
 		if (pCodigoSala == 0)
 			return pesquisar();
 

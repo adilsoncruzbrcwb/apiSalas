@@ -14,49 +14,38 @@ import br.ensalamento.controller.TipoDeSalaController;
 import br.ensalamento.dto.TipoDeSalaDTO;
 import br.ensalamento.model.TipoDeSala;
 
+@Path ("/TipoSala")
 public class TipoDeSalaWebService {
 
 	@POST
 	@Path("/Cadastrar")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public TipoDeSalaDTO cadastrar(TipoDeSala pTipoDeSala) {
-		return TipoDeSalaController.cadastrar(pTipoDeSala);
-	}
+	public TipoDeSalaDTO cadastrar(TipoDeSala pTipoDeSala) { return TipoDeSalaController.cadastrar(pTipoDeSala); }
 
 	@GET
 	@Path("/Recuperar/{idTipoDeSala}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public TipoDeSalaDTO recuperar(@PathParam("idTipoDeSala") int pIdTipoDeSala) {
-		return TipoDeSalaController.recuperar(pIdTipoDeSala);
-	}
+	public TipoDeSalaDTO recuperar(@PathParam("idTipoDeSala") int pIdTipoDeSala) { return TipoDeSalaController.recuperar(pIdTipoDeSala); }
 
 	@PUT
 	@Path("/Atualizar")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public TipoDeSalaDTO atualizar(TipoDeSala pAluno) {
-		return TipoDeSalaController.atualizar(pAluno);
-	}
+	public TipoDeSalaDTO atualizar(TipoDeSala pAluno) { return TipoDeSalaController.atualizar(pAluno); }
 
 	@DELETE
 	@Path("/Remover/{idTipoDeSala}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public TipoDeSalaDTO remover(@PathParam("idTipoDeSala") int pTipoDeSala) {
-		return TipoDeSalaController.remover(pTipoDeSala);
-	}
+	public TipoDeSalaDTO remover(@PathParam("idTipoDeSala") int pTipoDeSala) { return TipoDeSalaController.remover(pTipoDeSala); }
 
 	@GET
 	@Path("/Pesquisar")
 	@Produces(MediaType.APPLICATION_JSON)
-	public TipoDeSalaDTO pesquisar() {
-		return TipoDeSalaController.pesquisar();
-	}
+	public TipoDeSalaDTO pesquisar() { return TipoDeSalaController.pesquisar(); }
 
 	@GET
 	@Path("/PesquisarPorNome/{nome}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public TipoDeSalaDTO pesquisarPorNome(@PathParam("nome") int pCodigo) {
-		return TipoDeSalaController.searchByTipoDeSala(pCodigo);
-	}
+	public TipoDeSalaDTO pesquisarPorNome(@PathParam("nome") int pCodigo) { return TipoDeSalaController.searchByTipoDeSala(pCodigo); }
 }

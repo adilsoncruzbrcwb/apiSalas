@@ -21,43 +21,31 @@ public class SalaWebService {
 	@Path("/Cadastrar")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public SalasDTO cadastrar(Sala pSalas) {
-		return SalasController.cadastrar(pSalas);
-	}
+	public SalasDTO cadastrar(Sala pSalas) { return SalasController.cadastrar(pSalas); }
 
 	@GET
 	@Path("/Recuperar/{idSalas}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public SalasDTO recuperar(@PathParam("idSalas") int pIdSalas) {
-		return SalasController.recuperar(pIdSalas);
-	}
+	public SalasDTO recuperar(@PathParam("idSalas") int pIdSalas) { return SalasController.recuperar(pIdSalas); }
 
 	@PUT
 	@Path("/Atualizar")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public SalasDTO atualizar(Sala pAluno) {
-		return SalasController.atualizar(pAluno);
-	}
+	public SalasDTO atualizar(Sala pAluno) { return SalasController.atualizar(pAluno); }
 
 	@DELETE
 	@Path("/Remover/{idSalas}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public SalasDTO remover(@PathParam("idSalas") int pSalas) {
-		return SalasController.remover(pSalas);
-	}
+	public SalasDTO remover(@PathParam("idSalas") int pSalas) { return SalasController.remover(pSalas); }
 
 	@GET
 	@Path("/Pesquisar")
 	@Produces(MediaType.APPLICATION_JSON)
-	public SalasDTO pesquisar() {
-		return SalasController.pesquisar();
-	}
+	public SalasDTO pesquisar() { return SalasController.pesquisar(); }
 
 	@GET
 	@Path("/PesquisarPorNome/{nome}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public SalasDTO pesquisarPorNome(@PathParam("nome") int pCodigoSala) {
-		return SalasController.searchBySalas(pCodigoSala);
-	}
+	public SalasDTO pesquisarPorNome(@PathParam("nome") int pCodigoSala) { return SalasController.searchBySalas(pCodigoSala); }
 }

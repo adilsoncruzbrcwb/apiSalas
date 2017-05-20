@@ -18,9 +18,9 @@ public class Turma implements Serializable, Cloneable {
 	/* Atributos estáticos */
 	private static final long serialVersionUID = 3162938596466740097L;
 
-	private int idTurma;
-	private String NumerodaSala;
-	private int quantidadeAlunos;
+	private int 		idTurma;
+	private String 		NumerodaSala;
+	private int 		quantidadeAlunos;
 	private Ensalamento ensalamento;
 	
 	/* Métodos de acesso */

@@ -14,49 +14,38 @@ import br.ensalamento.controller.UsuarioController;
 import br.ensalamento.dto.UsuarioDTO;
 import br.ensalamento.model.Usuario;
 
+@Path("/Usuario")
 public class UsuarioWebService {
 
 	@POST
 	@Path("/Cadastrar")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public UsuarioDTO cadastrar(Usuario pUsuario) {
-		return UsuarioController.cadastrar(pUsuario);
-	}
+	public UsuarioDTO cadastrar(Usuario pUsuario) { return UsuarioController.cadastrar(pUsuario); }
 
 	@GET
 	@Path("/Recuperar/{idUsuario}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public UsuarioDTO recuperar(@PathParam("idUsuario") int pIdUsuario) {
-		return UsuarioController.recuperar(pIdUsuario);
-	}
+	public UsuarioDTO recuperar(@PathParam("idUsuario") int pIdUsuario) { return UsuarioController.recuperar(pIdUsuario); }
 
 	@PUT
 	@Path("/Atualizar")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public UsuarioDTO atualizar(Usuario pAluno) {
-		return UsuarioController.atualizar(pAluno);
-	}
+	public UsuarioDTO atualizar(Usuario pAluno) { return UsuarioController.atualizar(pAluno); }
 
 	@DELETE
 	@Path("/Remover/{idUsuario}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public UsuarioDTO remover(@PathParam("idUsuario") int pUsuario) {
-		return UsuarioController.remover(pUsuario);
-	}
+	public UsuarioDTO remover(@PathParam("idUsuario") int pUsuario) { return UsuarioController.remover(pUsuario); }
 
 	@GET
 	@Path("/Pesquisar")
 	@Produces(MediaType.APPLICATION_JSON)
-	public UsuarioDTO pesquisar() {
-		return UsuarioController.pesquisar();
-	}
+	public UsuarioDTO pesquisar() { return UsuarioController.pesquisar(); }
 
 	@GET
 	@Path("/PesquisarPorNome/{nome}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public UsuarioDTO pesquisarPorNome(@PathParam("nome") String pNome) {
-		return UsuarioController.pesquisarPorNome(pNome);
-	}
+	public UsuarioDTO pesquisarPorNome(@PathParam("nome") String pNome) { return UsuarioController.pesquisarPorNome(pNome); }
 }

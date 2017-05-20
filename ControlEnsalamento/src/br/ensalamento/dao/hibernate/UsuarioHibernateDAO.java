@@ -1,14 +1,3 @@
-/*
- * UsuarioDAO.java
- *
- * Classe que implementa a manutenção e recuperação dos Usuarios no banco de dados via JDBC
- *
- * © 2016 - Faculdades Opet - Todos os direitos reservados.
- *
- * Histórico
- * 14/07/2016 – Versão 1.0 - José Augusto – Criação do arquivo
- *
- */
 package br.ensalamento.dao.hibernate;
 
 import java.util.ArrayList;
@@ -26,198 +15,109 @@ import br.ensalamento.hibernate.HibernateUtil;
 import br.ensalamento.model.Usuario;
 import br.ensalamento.util.ExceptionUtil;
 
-public class UsuarioHibernateDAO implements UsuarioDAO
-{
-    // Método para criar um Usuario na base de dados (INSERT)
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * br.ensalamento.dao.jdbc.UsuarioDAO#create(br.ensalamento.model.Usuario)
-     */
-    @Override
-    public Usuario create(Usuario pUsuario)
-    {
-        try
-        {
-            // Obtendo a sessão hibernate
-            SessionFactory tFactory = HibernateUtil.getSessionFactory();
-            Session tSessao = tFactory.getCurrentSession();
+public class UsuarioHibernateDAO implements UsuarioDAO {
 
-            // salvando o objeto via hibernate
-            tSessao.save(pUsuario);
-            tSessao.flush();
+	@Override
+	public Usuario create(Usuario pUsuario) {
+		try {
+			SessionFactory tFactory = HibernateUtil.getSessionFactory();
+			Session tSessao = tFactory.getCurrentSession();
 
-            // retornando o objeto atualizado
-            return pUsuario;
-        }
-        catch (HibernateException tExcept)
-        {
-            ExceptionUtil.mostrarErro(tExcept, "Erro no método de criação do Usuario");
-        }
+			tSessao.save(pUsuario);
+			tSessao.flush();
 
-        return null;
-    }
+			return pUsuario;
+		} catch (HibernateException tExcept) {
+			ExceptionUtil.mostrarErro(tExcept, "Erro no método de criação do Usuario");
+		}
+		return null;
+	}
 
-    // Método para recuperar um Usuario da base de dados (SELECT)
-    /*
-     * (non-Javadoc)
-     *
-     * @see br.ensalamento.dao.jdbc.UsuarioDAO#recovery(int)
-     */
-    @Override
-    public Usuario recovery(int pMatricula)
-    {
-        try
-        {
-            // Obtendo a sessão hibernate
-            SessionFactory tFactory = HibernateUtil.getSessionFactory();
-            Session tSessao = tFactory.getCurrentSession();
+	@Override
+	public Usuario recovery(int pMatricula) {
+		try {
+			SessionFactory tFactory = HibernateUtil.getSessionFactory();
+			Session tSessao = tFactory.getCurrentSession();
 
-            // Recuperando o objeto via hibernate
-            Usuario tUsuario = (Usuario) tSessao.get(Usuario.class, pMatricula);
+			Usuario tUsuario = (Usuario) tSessao.get(Usuario.class, pMatricula);
 
-            // Retornando o objeto lido
-            return tUsuario;
-        }
-        catch (HibernateException tExcept)
-        {
-            ExceptionUtil.mostrarErro(tExcept, "Erro no método de recuperação do Usuario");
-        }
-        return null;
-    }
+			return tUsuario;
+		} catch (HibernateException tExcept) {
+			ExceptionUtil.mostrarErro(tExcept, "Erro no método de recuperação do Usuario");
+		}
+		return null;
+	}
 
-    // Método para atualizar um Usuario na base de dados (UPDATE)
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * br.ensalamento.dao.jdbc.UsuarioDAO#update(br.ensalamento.model.Usuario)
-     */
-    @Override
-    public Usuario update(Usuario pUsuario)
-    {
-        try
-        {
-            // Obtendo a sessão hibernate
-            SessionFactory tFactory = HibernateUtil.getSessionFactory();
-            Session tSessao = tFactory.getCurrentSession();
+	@Override
+	public Usuario update(Usuario pUsuario) {
+		try {
+			SessionFactory tFactory = HibernateUtil.getSessionFactory();
+			Session tSessao = tFactory.getCurrentSession();
 
-            // Ataulizando o objeto via hibernate
-            tSessao.merge(pUsuario);
-            tSessao.flush();
+			tSessao.merge(pUsuario);
+			tSessao.flush();
 
-            // Retornando o objeto atualizado
-            return pUsuario;
-        }
-        catch (HibernateException tExcept)
-        {
-            ExceptionUtil.mostrarErro(tExcept, "Erro no método de atualização do Usuario");
-        }
-        return null;
-    }
+			return pUsuario;
+		} catch (HibernateException tExcept) {
+			ExceptionUtil.mostrarErro(tExcept, "Erro no método de atualização do Usuario");
+		}
+		return null;
+	}
 
-    // Método para deletar um Usuario na base de dados (DELETE)
-    /*
-     * (non-Javadoc)
-     *
-     * @see br.ensalamento.dao.jdbc.UsuarioDAO#delete(int)
-     */
-    @Override
-    public boolean delete(int pMatricula)
-    {
-        try
-        {
-            // Obtendo a sessão hibernate
-            SessionFactory tFactory = HibernateUtil.getSessionFactory();
-            Session tSessao = tFactory.getCurrentSession();
+	@Override
+	public boolean delete(int pMatricula) {
+		try {
+			SessionFactory tFactory = HibernateUtil.getSessionFactory();
+			Session tSessao = tFactory.getCurrentSession();
 
-            // Removendo o objeto via hibernate
-            tSessao.delete(tSessao.get(Usuario.class, pMatricula));
-            tSessao.flush();
+			tSessao.delete(tSessao.get(Usuario.class, pMatricula));
+			tSessao.flush();
 
-            // Retornando indicativo de sucesso
-            return true;
-        }
-        catch (HibernateException tExcept)
-        {
-            ExceptionUtil.mostrarErro(tExcept, "Erro no método de atualização do Usuario");
-        }
+			return true;
+		} catch (HibernateException tExcept) {
+			ExceptionUtil.mostrarErro(tExcept, "Erro no método de atualização do Usuario");
+		}
+		return false;
+	}
 
-        return false;
-    }
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<Usuario> search() {
+		List<Usuario> tLista = new ArrayList<>();
 
-    // Método para pesquisar todos os Usuarios da base de dados
-    /*
-     * (non-Javadoc)
-     *
-     * @see br.ensalamento.dao.jdbc.UsuarioDAO#search()
-     */
-    @Override
-    @SuppressWarnings("unchecked")
-    public List<Usuario> search()
-    {
-        // Criando a tLista de Usuarios vazia
-        List<Usuario> tLista = new ArrayList<>();
+		try {
+			SessionFactory tFactory = HibernateUtil.getSessionFactory();
+			Session tSessao = tFactory.getCurrentSession();
 
-        try
-        {
-            // Obtendo a sessão hibernate
-            SessionFactory tFactory = HibernateUtil.getSessionFactory();
-            Session tSessao = tFactory.getCurrentSession();
+			Query tQuery = tSessao.createQuery("FROM Usuario");
 
-            // Criando o objeto para pesquisa
-            Query tQuery = tSessao.createQuery("FROM Usuario");
+			tLista = tQuery.list();
 
-            // Recuperando a lista via hibernate
-            tLista = tQuery.list();
+		} catch (HibernateException tExcept) {
+			ExceptionUtil.mostrarErro(tExcept, "Erro no método de recuperação da lista de Usuarios");
+		}
+		return tLista;
+	}
 
-        }
-        catch (HibernateException tExcept)
-        {
-            ExceptionUtil.mostrarErro(tExcept, "Erro no método de recuperação da lista de Usuarios");
-        }
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<Usuario> searchByNome(String pNome) {
+		String tNomePesquisa = "%" + pNome + "%";
 
-        // Retornando a lista de Usuarios
-        return tLista;
-    }
+		List<Usuario> tLista = new ArrayList<>();
 
-    // Método para pesquisar por nome todos os Usuarios da base de dados
-    /*
-     * (non-Javadoc)
-     *
-     * @see br.ensalamento.dao.jdbc.UsuarioDAO#searchByNome(java.lang.String)
-     */
-    @Override
-    @SuppressWarnings("unchecked")
-    public List<Usuario> searchByNome(String pNome)
-    {
-        // Acertando o critério de pesquisa
-        String tNomePesquisa = "%" + pNome + "%";
+		try {
+			SessionFactory tFactory = HibernateUtil.getSessionFactory();
+			Session tSessao = tFactory.getCurrentSession();
 
-        // Criando a tLista de Usuarios vazia
-        List<Usuario> tLista = new ArrayList<>();
+			Criteria tCriterio = tSessao.createCriteria(Usuario.class)
+					.add(Restrictions.like("nome", tNomePesquisa).ignoreCase());
 
-        try
-        {
-            // Obtendo a sessão hibernate
-            SessionFactory tFactory = HibernateUtil.getSessionFactory();
-            Session tSessao = tFactory.getCurrentSession();
-
-            // Criando o critério para pesquisa
-            Criteria tCriterio = tSessao.createCriteria(Usuario.class)
-                                          .add(Restrictions.like("nome", tNomePesquisa).ignoreCase());
-
-            // Recuperando a lista via hibernate
-            tLista = tCriterio.list();
-        }
-        catch (HibernateException tExcept)
-        {
-            ExceptionUtil.mostrarErro(tExcept, "Erro no método de recuperação da lista de Usuarios");
-        }
-
-        // Retornando a lista de Usuarios
-        return tLista;
-    }
+			tLista = tCriterio.list();
+		} catch (HibernateException tExcept) {
+			ExceptionUtil.mostrarErro(tExcept, "Erro no método de recuperação da lista de Usuarios");
+		}
+		return tLista;
+	}
 
 }

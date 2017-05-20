@@ -34,7 +34,6 @@ public class TurmaHibernateDAO implements TurmaDAO {
 		return null;
 	}
 
-
 	@Override
 	public Turma recovery(int pCodigo) {
 		try {
@@ -105,26 +104,23 @@ public class TurmaHibernateDAO implements TurmaDAO {
 	@Override
 	public List<Turma> searchByProfessor(int pMatriculaProfessor) {
 		{
-	        String tNomePesquisa = "%" + pMatriculaProfessor + "%";
+			String tNomePesquisa = "%" + pMatriculaProfessor + "%";
 
-	        List<Turma> tLista = new ArrayList<>();
+			List<Turma> tLista = new ArrayList<>();
 
-	        try
-	        {
-	            SessionFactory tFactory = HibernateUtil.getSessionFactory();
-	            Session tSessao = tFactory.getCurrentSession();
+			try {
+				SessionFactory tFactory = HibernateUtil.getSessionFactory();
+				Session tSessao = tFactory.getCurrentSession();
 
-	            Criteria tCriterio = tSessao.createCriteria(Turma.class)
-	                                          .add(Restrictions.like("Usuario", tNomePesquisa).ignoreCase());
+				Criteria tCriterio = tSessao.createCriteria(Turma.class)
+						.add(Restrictions.like("Usuario", tNomePesquisa).ignoreCase());
 
-	            tLista = tCriterio.list();
-	        }
-	        catch (HibernateException tExcept)
-	        {
-	            ExceptionUtil.mostrarErro(tExcept, "Erro no método de recuperação da lista de professors");
-	        }
+				tLista = tCriterio.list();
+			} catch (HibernateException tExcept) {
+				ExceptionUtil.mostrarErro(tExcept, "Erro no método de recuperação da lista de professors");
+			}
 
-	        return tLista;
-	    }
+			return tLista;
+		}
 	}
 }

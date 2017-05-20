@@ -17,13 +17,12 @@ public class Ensalamento implements Serializable, Cloneable {
 	/* Atributos estáticos */
 	private static final long serialVersionUID = 2179092916642396463L;
 
-	private int idEnsalamento;
-	//private Turno turno;
-	private Date datainicio;
-	private Date dataFim;
-	private String diaDaSemana;
+	private int 	idEnsalamento;
+	private Date 	datainicio;
+	private Date 	dataFim;
+	private String 	diaDaSemana;
 	private Boolean disponibilidade;
-	private Turno turno;
+	private Turno 	turno;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -8,7 +8,6 @@ import br.ensalamento.dto.TipoDeSalaDTO;
 import br.ensalamento.model.TipoDeSala;
 
 public class TipoDeSalaController {
-//	Cadastrar
 	public static TipoDeSalaDTO cadastrar(TipoDeSala pTipoDeSala) {
 		if (pTipoDeSala == null)
 			return new TipoDeSalaDTO(false, "Nula");
@@ -20,7 +19,6 @@ public class TipoDeSalaController {
 			return new TipoDeSalaDTO(false, "problema gravacao", tSala);
 		return new TipoDeSalaDTO(true, "Cadastrado", tSala);
 	}
-//	Recuperar
 	public static TipoDeSalaDTO recuperar(int pCodigo) {
 		TipoDeSalaDAO tDao = DaoFactory.geTipoDeSalaDAO();
 		TipoDeSala tCurso = tDao.recovery(pCodigo);
@@ -30,7 +28,6 @@ public class TipoDeSalaController {
 
 		return new TipoDeSalaDTO(true, "Sucesso", tCurso);
 	}
-//	Atualizar
 	public static TipoDeSalaDTO atualizar (TipoDeSala pSala){
 		if (pSala == null)
 			return new TipoDeSalaDTO(false, "Nula");
@@ -42,7 +39,6 @@ public class TipoDeSalaController {
 			return new TipoDeSalaDTO(false, "não existe");
 		return new TipoDeSalaDTO(true, "Atualizado", tCurso);
 	}
-//	Deletar
 	public static TipoDeSalaDTO remover (int pCodigo){
 		TipoDeSalaDAO tDao = DaoFactory.geTipoDeSalaDAO();
 		if (!tDao.delete(pCodigo))
@@ -50,7 +46,6 @@ public class TipoDeSalaController {
 		return new TipoDeSalaDTO(true, "removido");
 		
 	}
-// Pesquisar
 	public static TipoDeSalaDTO pesquisar(){
 		TipoDeSalaDAO tDao = DaoFactory.geTipoDeSalaDAO();
 		List<TipoDeSala> tLista = tDao.search();
@@ -62,9 +57,7 @@ public class TipoDeSalaController {
 		
 	}
 	
-// Pesquisar por Nome
 	public static TipoDeSalaDTO searchByTipoDeSala(int pCodigo) {
-		
 		if (pCodigo == 0)
 			return pesquisar();
 

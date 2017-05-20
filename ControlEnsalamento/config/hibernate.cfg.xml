@@ -6,12 +6,12 @@
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="hibernate.connection.username">emsala</property>
 		<property name="hibernate.connection.password">professorlindo</property>
-		<property name="hibernate.connection.url">jdbc:mysql://tretamaligna.com.br</property>
+		<property name="hibernate.connection.url">jdbc:mysql://31.220.107.108</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 		<property name="hibernate.default_schema">emsala</property>
 		<property name="connection.pool_size">1</property>
 		<property name="hibernate.show_sql">true</property>
-		<property name="hbm2ddl.auto">create</property>
+		<property name="hbm2ddl.auto">validate</property>
 		<property name="hibernate.current_session_context_class">thread</property>
 
 		<!-- Mapeamento das Classes -->

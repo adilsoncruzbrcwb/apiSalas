@@ -1,15 +1,4 @@
 package br.ensalamento.dao.hibernate;
-/*
- * DisciplinaDAO.java
- *
- * Classe que implementa a manutenção e recuperação dos alunos no banco de dados via JDBC
- *
- * © 2016 - Faculdades Opet - Todos os direitos reservados.
- *
- * Histórico
- * 14/07/2016 – Versão 1.0 - José Augusto – Criação do arquivo
- *
- */
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,190 +15,108 @@ import br.ensalamento.hibernate.HibernateUtil;
 import br.ensalamento.model.Disciplina;
 import br.ensalamento.util.ExceptionUtil;
 
-public class DisciplinaHibernateDAO implements DisciplinaDAO
-{
-    @Override
-    public Disciplina create(Disciplina pDisciplina)
-    {
-        try
-        {
-            // Obtendo a sessão hibernate
-            SessionFactory tFactory = HibernateUtil.getSessionFactory();
-            Session tSessao = tFactory.getCurrentSession();
+public class DisciplinaHibernateDAO implements DisciplinaDAO {
+	@Override
+	public Disciplina create(Disciplina pDisciplina) {
+		try {
+			SessionFactory tFactory = HibernateUtil.getSessionFactory();
+			Session tSessao = tFactory.getCurrentSession();
 
-            // salvando o objeto via hibernate
-            tSessao.save(pDisciplina);
-            tSessao.flush();
+			tSessao.save(pDisciplina);
+			tSessao.flush();
 
-            // retornando o objeto atualizado
-            return pDisciplina;
-        }
-        catch (HibernateException tExcept)
-        {
-            ExceptionUtil.mostrarErro(tExcept, "Erro no método de criação do aluno");
-        }
+			return pDisciplina;
+		} catch (HibernateException tExcept) {
+			ExceptionUtil.mostrarErro(tExcept, "Erro no método de criação do aluno");
+		}
+		return null;
+	}
 
-        return null;
-    }
+	@Override
+	public Disciplina recovery(int pMatricula) {
+		try {
+			SessionFactory tFactory = HibernateUtil.getSessionFactory();
+			Session tSessao = tFactory.getCurrentSession();
 
-    // Método para recuperar um aluno da base de dados (SELECT)
-    /*
-     * (non-Javadoc)
-     *
-     * @see br.edu.opet.dao.jdbc.DisciplinaDAO#recovery(int)
-     */
-    @Override
-    public Disciplina recovery(int pMatricula)
-    {
-        try
-        {
-            // Obtendo a sessão hibernate
-            SessionFactory tFactory = HibernateUtil.getSessionFactory();
-            Session tSessao = tFactory.getCurrentSession();
+			Disciplina tDisciplina = (Disciplina) tSessao.get(Disciplina.class, pMatricula);
 
-            // Recuperando o objeto via hibernate
-            Disciplina tDisciplina = (Disciplina) tSessao.get(Disciplina.class, pMatricula);
+			return tDisciplina;
+		} catch (HibernateException tExcept) {
+			ExceptionUtil.mostrarErro(tExcept, "Erro no método de recuperação do aluno");
+		}
+		return null;
+	}
 
-            // Retornando o objeto lido
-            return tDisciplina;
-        }
-        catch (HibernateException tExcept)
-        {
-            ExceptionUtil.mostrarErro(tExcept, "Erro no método de recuperação do aluno");
-        }
-        return null;
-    }
+	@Override
+	public Disciplina update(Disciplina pDisciplina) {
+		try {
+			SessionFactory tFactory = HibernateUtil.getSessionFactory();
+			Session tSessao = tFactory.getCurrentSession();
 
-    // Método para atualizar um aluno na base de dados (UPDATE)
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * br.edu.opet.dao.jdbc.DisciplinaDAO#update(br.edu.opet.model.Disciplina)
-     */
-    @Override
-    public Disciplina update(Disciplina pDisciplina)
-    {
-        try
-        {
-            // Obtendo a sessão hibernate
-            SessionFactory tFactory = HibernateUtil.getSessionFactory();
-            Session tSessao = tFactory.getCurrentSession();
+			tSessao.merge(pDisciplina);
+			tSessao.flush();
 
-            // Ataulizando o objeto via hibernate
-            tSessao.merge(pDisciplina);
-            tSessao.flush();
+			return pDisciplina;
+		} catch (HibernateException tExcept) {
+			ExceptionUtil.mostrarErro(tExcept, "Erro no método de atualização do aluno");
+		}
+		return null;
+	}
 
-            // Retornando o objeto atualizado
-            return pDisciplina;
-        }
-        catch (HibernateException tExcept)
-        {
-            ExceptionUtil.mostrarErro(tExcept, "Erro no método de atualização do aluno");
-        }
-        return null;
-    }
+	@Override
+	public boolean delete(int pMatricula) {
+		try {
+			SessionFactory tFactory = HibernateUtil.getSessionFactory();
+			Session tSessao = tFactory.getCurrentSession();
 
-    // Método para deletar um aluno na base de dados (DELETE)
-    /*
-     * (non-Javadoc)
-     *
-     * @see br.edu.opet.dao.jdbc.DisciplinaDAO#delete(int)
-     */
-    @Override
-    public boolean delete(int pMatricula)
-    {
-        try
-        {
-            // Obtendo a sessão hibernate
-            SessionFactory tFactory = HibernateUtil.getSessionFactory();
-            Session tSessao = tFactory.getCurrentSession();
+			tSessao.delete(tSessao.get(Disciplina.class, pMatricula));
+			tSessao.flush();
 
-            // Removendo o objeto via hibernate
-            tSessao.delete(tSessao.get(Disciplina.class, pMatricula));
-            tSessao.flush();
+			return true;
+		} catch (HibernateException tExcept) {
+			ExceptionUtil.mostrarErro(tExcept, "Erro no método de atualização do aluno");
+		}
 
-            // Retornando indicativo de sucesso
-            return true;
-        }
-        catch (HibernateException tExcept)
-        {
-            ExceptionUtil.mostrarErro(tExcept, "Erro no método de atualização do aluno");
-        }
+		return false;
+	}
 
-        return false;
-    }
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<Disciplina> search() {
+		List<Disciplina> tLista = new ArrayList<>();
 
-    // Método para pesquisar todos os alunos da base de dados
-    /*
-     * (non-Javadoc)
-     *
-     * @see br.edu.opet.dao.jdbc.DisciplinaDAO#search()
-     */
-    @Override
-    @SuppressWarnings("unchecked")
-    public List<Disciplina> search()
-    {
-        // Criando a tLista de alunos vazia
-        List<Disciplina> tLista = new ArrayList<>();
+		try {
+			SessionFactory tFactory = HibernateUtil.getSessionFactory();
+			Session tSessao = tFactory.getCurrentSession();
 
-        try
-        {
-            // Obtendo a sessão hibernate
-            SessionFactory tFactory = HibernateUtil.getSessionFactory();
-            Session tSessao = tFactory.getCurrentSession();
+			Query tQuery = tSessao.createQuery("from Disciplina");
 
-            // Criando o objeto para pesquisa
-            Query tQuery = tSessao.createQuery("from Disciplina");
+			tLista = tQuery.list();
 
-            // Recuperando a lista via hibernate
-            tLista = tQuery.list();
+		} catch (HibernateException tExcept) {
+			ExceptionUtil.mostrarErro(tExcept, "Erro no método de recuperação da lista de alunos");
+		}
+		return tLista;
+	}
 
-        }
-        catch (HibernateException tExcept)
-        {
-            ExceptionUtil.mostrarErro(tExcept, "Erro no método de recuperação da lista de alunos");
-        }
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<Disciplina> searchByNome(String pNome) {
+		String tNomePesquisa = "%" + pNome + "%";
 
-        // Retornando a lista de alunos
-        return tLista;
-    }
+		List<Disciplina> tLista = new ArrayList<>();
 
-    // Método para pesquisar por nome todos os alunos da base de dados
-    /*
-     * (non-Javadoc)
-     *
-     * @see br.edu.opet.dao.jdbc.DisciplinaDAO#searchByNome(java.lang.String)
-     */
-    @Override
-    @SuppressWarnings("unchecked")
-    public List<Disciplina> searchByNome(String pNome)
-    {
-        // Acertando o critério de pesquisa
-        String tNomePesquisa = "%" + pNome + "%";
+		try {
+			SessionFactory tFactory = HibernateUtil.getSessionFactory();
+			Session tSessao = tFactory.getCurrentSession();
 
-        // Criando a tLista de alunos vazia
-        List<Disciplina> tLista = new ArrayList<>();
+			Criteria tCriterio = tSessao.createCriteria(Disciplina.class)
+					.add(Restrictions.like("nome", tNomePesquisa).ignoreCase());
 
-        try
-        {
-            // Obtendo a sessão hibernate
-            SessionFactory tFactory = HibernateUtil.getSessionFactory();
-            Session tSessao = tFactory.getCurrentSession();
-
-            // Criando o critério para pesquisa
-            Criteria tCriterio = tSessao.createCriteria(Disciplina.class)
-                                          .add(Restrictions.like("nome", tNomePesquisa).ignoreCase());
-
-            // Recuperando a lista via hibernate
-            tLista = tCriterio.list();
-        }
-        catch (HibernateException tExcept)
-        {
-            ExceptionUtil.mostrarErro(tExcept, "Erro no método de recuperação da lista de alunos");
-        }
-
-        // Retornando a lista de alunos
-        return tLista;
-    }
+			tLista = tCriterio.list();
+		} catch (HibernateException tExcept) {
+			ExceptionUtil.mostrarErro(tExcept, "Erro no método de recuperação da lista de alunos");
+		}
+		return tLista;
+	}
 }

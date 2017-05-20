@@ -20,43 +20,31 @@ public class EnsalamentosWebService {
 	@Path("/Cadastrar")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public EnsalamentosDTO cadastrar(Ensalamento pAluno) {
-		return EnsalamentosController.cadastrar(pAluno);
-	}
+	public EnsalamentosDTO cadastrar(Ensalamento pAluno) { return EnsalamentosController.cadastrar(pAluno); }
 
 	@GET
 	@Path("/Recuperar/{matricula}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public EnsalamentosDTO recuperar(@PathParam("matricula") int pMatricula) {
-		return EnsalamentosController.recuperar(pMatricula);
-	}
+	public EnsalamentosDTO recuperar(@PathParam("matricula") int pMatricula) { return EnsalamentosController.recuperar(pMatricula); }
 
 	@PUT
 	@Path("/Atualizar")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public EnsalamentosDTO atualizar(Ensalamento pAluno) {
-		return EnsalamentosController.atualizar(pAluno);
-	}
+	public EnsalamentosDTO atualizar(Ensalamento pAluno) { return EnsalamentosController.atualizar(pAluno); }
 
 	@DELETE
 	@Path("/Remover/{matricula}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public EnsalamentosDTO remover(@PathParam("matricula") int pMatricula) {
-		return EnsalamentosController.remover(pMatricula);
-	}
+	public EnsalamentosDTO remover(@PathParam("matricula") int pMatricula) { return EnsalamentosController.remover(pMatricula); }
 
 	@GET
 	@Path("/Pesquisar")
 	@Produces(MediaType.APPLICATION_JSON)
-	public EnsalamentosDTO pesquisar() {
-		return EnsalamentosController.pesquisar();
-	}
+	public EnsalamentosDTO pesquisar() { return EnsalamentosController.pesquisar(); }
 
 	@GET
 	@Path("/PesquisarPorNome/{nome}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public EnsalamentosDTO pesquisarPorNome(@PathParam("nome") String pDiaDaSemana) {
-		return EnsalamentosController.pesquisarPorSemana(pDiaDaSemana);
-	}
+	public EnsalamentosDTO pesquisarPorNome(@PathParam("nome") String pDiaDaSemana) { return EnsalamentosController.pesquisarPorSemana(pDiaDaSemana); }
 }

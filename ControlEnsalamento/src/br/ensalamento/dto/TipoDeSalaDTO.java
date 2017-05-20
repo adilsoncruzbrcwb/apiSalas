@@ -16,7 +16,8 @@ public class TipoDeSalaDTO extends AbstractDTO<TipoDeSala> {
 	public TipoDeSalaDTO(boolean pOk, String pMensagem, List<TipoDeSala> pLista) {
 		super(pOk, pMensagem, pLista);
 	}
-
+	
+	/* Metodos de acesso */
 	public TipoDeSala getTipoDeSala() {
 		return getObjeto();
 	}

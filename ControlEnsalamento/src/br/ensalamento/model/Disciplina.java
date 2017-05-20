@@ -25,32 +25,18 @@ public class Disciplina implements Serializable, Cloneable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY )
 	@Column (name = "IDDISCIPLINA")
-	public int getIdDisciplina() { return idDisciplina;
-	}
-
-	public void setIdDisciplina(int idDisciplina) {
-		this.idDisciplina = idDisciplina;
-	}
+	public int getIdDisciplina() { return idDisciplina;}
+	public void setIdDisciplina(int idDisciplina) {	this.idDisciplina = idDisciplina;}
 	
 	@Column (name = "DescricaoDisciplina")
-	public String getDescricaoDisciplinas() {
-		return descricaoDisciplinas;
-	}
-
-	public void setDescricaoDisciplinas(String descricaoDisciplinas) {
-		this.descricaoDisciplinas = descricaoDisciplinas;
-	}
+	public String getDescricaoDisciplinas() {return descricaoDisciplinas;}
+	public void setDescricaoDisciplinas(String descricaoDisciplinas) { this.descricaoDisciplinas = descricaoDisciplinas;}
 
 
 	@ManyToOne()
 	@JoinColumn(name = "DISCIPLINA_TURMA") // Nome da chave estrangeira na tabela
-	public Ensalamento getEnsalamento() {
-		return ensalamento;
-	}
-
-	public void setEnsalamento(Ensalamento ensalamento) {
-		this.ensalamento = ensalamento;
-	}
+	public Ensalamento getEnsalamento() { return ensalamento;}
+	public void setEnsalamento(Ensalamento ensalamento) {this.ensalamento = ensalamento;}
 
 	/* Métodos da classe Object */
 	
@@ -88,10 +74,7 @@ public class Disciplina implements Serializable, Cloneable {
 			return false;
 		return true;
 	}
-	
 
 	@Override
-	protected Object clone() throws CloneNotSupportedException {
-		return super.clone();
-	}
+	protected Object clone() throws CloneNotSupportedException {return super.clone();}
 }

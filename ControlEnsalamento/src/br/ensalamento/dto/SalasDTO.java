@@ -5,24 +5,16 @@ import java.util.List;
 import br.ensalamento.model.Sala;
 
 public class SalasDTO extends AbstractDTO<Sala> {
-	public SalasDTO(boolean pOk, String pMensagem) {
-		super(pOk, pMensagem);
-	}
+	/* Construtores da classe */
+	public SalasDTO(boolean pOk, String pMensagem) { super(pOk, pMensagem); }
 
-	public SalasDTO(boolean pOk, String pMensagem, Sala pSalas) {
-		super(pOk, pMensagem, pSalas);
-	}
+	public SalasDTO(boolean pOk, String pMensagem, Sala pSalas) { super(pOk, pMensagem, pSalas); }
 
-	public SalasDTO(boolean pOk, String pMensagem, List<Sala> pLista) {
-		super(pOk, pMensagem, pLista);
-	}
+	public SalasDTO(boolean pOk, String pMensagem, List<Sala> pLista) { super(pOk, pMensagem, pLista); }
 
-	public Sala getSalas() {
-		return getObjeto();
-	}
+	/* Metodos de acesso */
+	public Sala getSalas() { return getObjeto(); }
 
-	public void setSalas(Sala pSalas) {
-		setObjeto(pSalas);
-	}
+	public void setSalas(Sala pSalas) { setObjeto(pSalas); }
 
 }

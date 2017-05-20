@@ -25,37 +25,27 @@ public class CursoWebService {
 	@GET
 	@Path("/Recuperar/{idCurso}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public CursoDTO recuperar(@PathParam("idCurso") int pIdCurso) {
-		return CursoController.recuperar(pIdCurso);
-	}
+	public CursoDTO recuperar(@PathParam("idCurso") int pIdCurso) { return CursoController.recuperar(pIdCurso); }
 
 	@PUT
 	@Path("/Atualizar")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public CursoDTO atualizar(Curso pAluno) {
-		return CursoController.atualizar(pAluno);
-	}
+	public CursoDTO atualizar(Curso pAluno) { return CursoController.atualizar(pAluno); }
 
 	@DELETE
 	@Path("/Remover/{idCurso}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public CursoDTO remover(@PathParam("idCurso") int pCurso) {
-		return CursoController.remover(pCurso);
-	}
+	public CursoDTO remover(@PathParam("idCurso") int pCurso) { return CursoController.remover(pCurso); }
 
 	@GET
 	@Path("/Pesquisar")
 	@Produces(MediaType.APPLICATION_JSON)
-	public CursoDTO pesquisar() {
-		return CursoController.pesquisar();
-	}
+	public CursoDTO pesquisar() { return CursoController.pesquisar(); }
 
 	@GET
 	@Path("/PesquisarPorNome/{nome}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public CursoDTO pesquisarPorNome(@PathParam("nome") String pCodigoCurso) {
-		return CursoController.searchByDisciplina(pCodigoCurso);
-	}
+	public CursoDTO pesquisarPorNome(@PathParam("nome") String pCodigoCurso) { return CursoController.searchByDisciplina(pCodigoCurso); }
 
 }

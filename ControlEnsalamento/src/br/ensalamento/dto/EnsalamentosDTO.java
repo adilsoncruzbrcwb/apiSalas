@@ -7,37 +7,19 @@ import javax.xml.bind.annotation.XmlRootElement;
 import br.ensalamento.model.Ensalamento;
 
 @XmlRootElement(name = "EnsalamentosDTO")
-public class EnsalamentosDTO extends AbstractDTO<Ensalamento>
-{
-    /* Construtores da classe */
-    public EnsalamentosDTO()
-    {
-        super();
-    }
+public class EnsalamentosDTO extends AbstractDTO<Ensalamento> {
+	
+	/* Construtores da classe */
+	public EnsalamentosDTO() { super(); }
 
-    public EnsalamentosDTO(boolean pOk, String pMensagem)
-    {
-        super(pOk, pMensagem);
-    }
+	public EnsalamentosDTO(boolean pOk, String pMensagem) { super(pOk, pMensagem); }
 
-    public EnsalamentosDTO(boolean pOk, String pMensagem, Ensalamento pAluno)
-    {
-        super(pOk, pMensagem, pAluno);
-    }
+	public EnsalamentosDTO(boolean pOk, String pMensagem, Ensalamento pAluno) { super(pOk, pMensagem, pAluno); }
 
-    public EnsalamentosDTO(boolean pOk, String pMensagem, List<Ensalamento> pLista)
-    {
-        super(pOk, pMensagem, pLista);
-    }
+	public EnsalamentosDTO(boolean pOk, String pMensagem, List<Ensalamento> pLista) { super(pOk, pMensagem, pLista); }
 
-    /* M�todos de acesso */
-    public Ensalamento getAluno()
-    {
-        return getObjeto();
-    }
+	/* Metodos de acesso */
+	public Ensalamento getAluno() { return getObjeto(); }
 
-    public void setAluno(Ensalamento pAluno)
-    {
-        setObjeto(pAluno);
-    }
+	public void setAluno(Ensalamento pAluno) { setObjeto(pAluno); }
 }
