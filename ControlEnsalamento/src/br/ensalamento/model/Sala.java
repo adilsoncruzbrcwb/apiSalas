@@ -20,6 +20,8 @@ public class Sala implements Serializable, Cloneable {
 	private int 		idSala;
 	private int 		capacidade;
 	private Ensalamento ensalamento;
+	private TipoDeSala tipoSala;
+	
 	
 	/* Métodos de acesso */
 	@Id
@@ -38,6 +40,15 @@ public class Sala implements Serializable, Cloneable {
 	{return ensalamento;}
 	public void setEnsalamento(Ensalamento ensalamento) 
 	{this.ensalamento = ensalamento;}
+	
+	@ManyToOne()
+	@JoinColumn(name = "TIPO_SALA")
+	public TipoDeSala getTipoSala() {
+		return tipoSala;
+	}
+	public void setTipoSala(TipoDeSala tipoSala) {
+		this.tipoSala = tipoSala;
+	}
 	
 	/* Métodos da classe Object */
 	@Override

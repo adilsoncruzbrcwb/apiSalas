@@ -22,6 +22,8 @@ public class Turma implements Serializable, Cloneable {
 	private String 		NumerodaSala;
 	private int 		quantidadeAlunos;
 	private Ensalamento ensalamento;
+	private String descricao;
+	
 	
 	/* Métodos de acesso */
 	@Id
@@ -29,6 +31,14 @@ public class Turma implements Serializable, Cloneable {
 	@Column(name = "IDTURMA")
 	public int getIdTurma() { return idTurma; }
 	public void setIdTurma(int idTurma) { this.idTurma = idTurma; }
+	
+	@Column(name = "DESCRICAO")
+	public String getDescricao() {
+		return descricao;
+	}
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
 	
 	@Column(name = "NUMERODASALA")
 	public String getNumerodaSala() {return NumerodaSala;}

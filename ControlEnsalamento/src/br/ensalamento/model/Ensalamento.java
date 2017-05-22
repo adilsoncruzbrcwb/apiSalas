@@ -9,6 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 import br.ensalamento.enums.Turno;
 
 @Table
@@ -23,7 +26,12 @@ public class Ensalamento implements Serializable, Cloneable {
 	private String 	diaDaSemana;
 	private Boolean disponibilidade;
 	private Turno 	turno;
+	private Sala sala;
+	private Curso curso;
+	private Disciplina disciplina;
+	private Usuario professor;
 
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "IDENSALAMENTO")
@@ -50,6 +58,42 @@ public class Ensalamento implements Serializable, Cloneable {
 	public Boolean getDisponibilidade() { return disponibilidade; }
 	public void setDisponibilidade(Boolean disponibilidade) { this.disponibilidade = disponibilidade; }
 
+	@ManyToOne()
+	@JoinColumn(name = "SALA") 
+	public Sala getSala() {
+		return sala;
+	}
+	public void setSala(Sala sala) {
+		this.sala = sala;
+	}
+	
+	@ManyToOne()
+	@JoinColumn(name = "CURSO") 
+	public Curso getCurso() {
+		return curso;
+	}
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
+	
+	@ManyToOne()
+	@JoinColumn(name = "DISCIPLINA") 
+	public Disciplina getDisciplina() {
+		return disciplina;
+	}
+	public void setDisciplina(Disciplina disciplina) {
+		this.disciplina = disciplina;
+	}
+	
+	@ManyToOne()
+	@JoinColumn(name = "PROFESSOR") 
+	public Usuario getProfessor() {
+		return professor;
+	}
+	public void setProfessor(Usuario professor) {
+		this.professor = professor;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
