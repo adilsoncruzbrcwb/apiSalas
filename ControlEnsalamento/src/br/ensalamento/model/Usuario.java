@@ -23,10 +23,9 @@ public class Usuario implements Serializable, Cloneable {
 	private String 			tipoUsuario;
 	private String 			email;
 	private String 			senha;
-	private Sala 			sala;
-	private Turma 			turma;
+
 	private String			idFacebook;
-	private String			acessToken;
+
 	
 	
 	/* Métodos de Acesso */
@@ -62,20 +61,8 @@ public class Usuario implements Serializable, Cloneable {
 	public String getSenha() {return senha;}
 	public void setSenha(String senha) {this.senha = senha;}
 	
-	@ManyToOne()
-	@JoinColumn(name = "USUARIO_SALA") // Nome da chave estrangeira na tabela
-	public Sala getSala() {return sala;}
-	public void setSala(Sala sala) {this.sala = sala;}
-	
-	@ManyToOne()
-	@JoinColumn(name = "USUARIO_TURMA") // Nome da chave estrangeira na tabela
-	public Turma getTurma() {return turma;}
-	public void setTurma(Turma turma) {this.turma = turma;}
 
-	@Column (name = "AcessToken")
-	public String getAcessToken() { return acessToken; }
-	public void setAcessToken(String acessToken) { this.acessToken = acessToken; }
-	
+
 	@Column (name = "IdFacebook")
 	public String getIdFacebook() { return idFacebook; }
 	public void setIdFacebook(String idFacebook) { this.idFacebook = idFacebook; }
@@ -87,17 +74,14 @@ public class Usuario implements Serializable, Cloneable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((acessToken == null) ? 0 : acessToken.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((ensalamento == null) ? 0 : ensalamento.hashCode());
 		result = prime * result + ((idFacebook == null) ? 0 : idFacebook.hashCode());
 		result = prime * result + matricula;
 		result = prime * result + ((nomeCompleto == null) ? 0 : nomeCompleto.hashCode());
-		result = prime * result + ((sala == null) ? 0 : sala.hashCode());
 		result = prime * result + ((senha == null) ? 0 : senha.hashCode());
 		result = prime * result + ((status == null) ? 0 : status.hashCode());
 		result = prime * result + ((tipoUsuario == null) ? 0 : tipoUsuario.hashCode());
-		result = prime * result + ((turma == null) ? 0 : turma.hashCode());
 		return result;
 	}
 	/* (non-Javadoc)
@@ -112,11 +96,7 @@ public class Usuario implements Serializable, Cloneable {
 		if (getClass() != obj.getClass())
 			return false;
 		Usuario other = (Usuario) obj;
-		if (acessToken == null) {
-			if (other.acessToken != null)
-				return false;
-		} else if (!acessToken.equals(other.acessToken))
-			return false;
+
 		if (email == null) {
 			if (other.email != null)
 				return false;
@@ -139,11 +119,7 @@ public class Usuario implements Serializable, Cloneable {
 				return false;
 		} else if (!nomeCompleto.equals(other.nomeCompleto))
 			return false;
-		if (sala == null) {
-			if (other.sala != null)
-				return false;
-		} else if (!sala.equals(other.sala))
-			return false;
+
 		if (senha == null) {
 			if (other.senha != null)
 				return false;
@@ -159,11 +135,7 @@ public class Usuario implements Serializable, Cloneable {
 				return false;
 		} else if (!tipoUsuario.equals(other.tipoUsuario))
 			return false;
-		if (turma == null) {
-			if (other.turma != null)
-				return false;
-		} else if (!turma.equals(other.turma))
-			return false;
+
 		return true;
 	}
 	

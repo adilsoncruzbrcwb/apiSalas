@@ -22,8 +22,9 @@ public class Turma implements Serializable, Cloneable {
 	private String 		NumerodaSala;
 	private int 		quantidadeAlunos;
 	private Ensalamento ensalamento;
-	private String descricao;
+	private String 		descricao;
 	
+	private Usuario 	usuario;
 	
 	/* Métodos de acesso */
 	@Id
@@ -33,12 +34,8 @@ public class Turma implements Serializable, Cloneable {
 	public void setIdTurma(int idTurma) { this.idTurma = idTurma; }
 	
 	@Column(name = "DESCRICAO")
-	public String getDescricao() {
-		return descricao;
-	}
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
+	public String getDescricao() { return descricao; }
+	public void setDescricao(String descricao) {this.descricao = descricao; }
 	
 	@Column(name = "NUMERODASALA")
 	public String getNumerodaSala() {return NumerodaSala;}
@@ -52,6 +49,11 @@ public class Turma implements Serializable, Cloneable {
 	@JoinColumn(name = "TURMA_ENSALAMENTO") // Nome da chave estrangeira na tabela
 	public Ensalamento getEnsalamento() { return ensalamento; }
 	public void setEnsalamento(Ensalamento ensalamento) { this.ensalamento = ensalamento; }
+
+	@ManyToOne()
+	@JoinColumn(name = "TURMA_USUARIO") // Nome da chave estrangeira na tabela
+	public Usuario getUsuario() { return usuario; }
+	public void setUsuario(Usuario usuario) { this.usuario = usuario; }
 
 	@Override
 	public int hashCode() {
