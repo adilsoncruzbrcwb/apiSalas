@@ -41,7 +41,7 @@ public class UsuarioController {
 
 		return new UsuarioDTO(true, "Usuario lido com sucesso", tUsuario);
 	}
-
+		
 	public static UsuarioDTO atualizar(Usuario pUsuario) {
 		if (pUsuario == null)
 			return new UsuarioDTO(false, "Tentativa de atualizar um Usuario nulo");
@@ -82,6 +82,32 @@ public class UsuarioController {
 
 		if (tLista.isEmpty())
 			return new UsuarioDTO(false, "Nenhum registro encontrado com nome '" + pNome + "'");
+
+		return new UsuarioDTO(true, "Lista de Usuarios recuperada", tLista);
+	}
+	
+	public static UsuarioDTO pesquisarPorFace(String pFace) {
+		if (pFace == null)
+			return pesquisar();
+
+		UsuarioDAO tDao = DaoFactory.getUsuarioDAO();
+		List<Usuario> tLista = tDao.searchByFace(pFace);
+
+		if (tLista.isEmpty())
+			return new UsuarioDTO(false, "Nenhum registro encontrado com nome '" + pFace + "'");
+
+		return new UsuarioDTO(true, "Lista de Usuarios recuperada", tLista);
+	}
+	
+	public static UsuarioDTO pesquisarPorEmail(String pEmail) {
+		if (pEmail == null)
+			return pesquisar();
+
+		UsuarioDAO tDao = DaoFactory.getUsuarioDAO();
+		List<Usuario> tLista = tDao.searchByEmail(pEmail);
+
+		if (tLista.isEmpty())
+			return new UsuarioDTO(false, "Nenhum registro encontrado com nome '" + pEmail + "'");
 
 		return new UsuarioDTO(true, "Lista de Usuarios recuperada", tLista);
 	}

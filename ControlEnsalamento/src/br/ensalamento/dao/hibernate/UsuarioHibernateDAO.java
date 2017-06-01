@@ -120,4 +120,45 @@ public class UsuarioHibernateDAO implements UsuarioDAO {
 		return tLista;
 	}
 
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<Usuario> searchByFace(String idFacebook) {
+		String tNomePesquisa = "%" + idFacebook + "%";
+
+		List<Usuario> tLista = new ArrayList<>();
+
+		try {
+			SessionFactory tFactory = HibernateUtil.getSessionFactory();
+			Session tSessao = tFactory.getCurrentSession();
+
+			Criteria tCriterio = tSessao.createCriteria(Usuario.class)
+					.add(Restrictions.like("idFacebook", tNomePesquisa).ignoreCase());
+
+			tLista = tCriterio.list();
+		} catch (HibernateException tExcept) {
+			ExceptionUtil.mostrarErro(tExcept, "Erro no método de recuperação da lista de Usuarios");
+		}
+		return tLista;
+	}
+	
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<Usuario> searchByEmail(String Email) {
+		String tNomePesquisa = "%" + Email + "%";
+
+		List<Usuario> tLista = new ArrayList<>();
+
+		try {
+			SessionFactory tFactory = HibernateUtil.getSessionFactory();
+			Session tSessao = tFactory.getCurrentSession();
+
+			Criteria tCriterio = tSessao.createCriteria(Usuario.class)
+					.add(Restrictions.like("Email", tNomePesquisa).ignoreCase());
+
+			tLista = tCriterio.list();
+		} catch (HibernateException tExcept) {
+			ExceptionUtil.mostrarErro(tExcept, "Erro no método de recuperação da lista de Usuarios");
+		}
+		return tLista;
+	}
 }

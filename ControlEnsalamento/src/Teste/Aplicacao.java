@@ -1,64 +1,95 @@
-//package Teste;
+package Teste;
+
+import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
+
+import br.ensalamento.hibernate.HibernateUtil;
+import br.ensalamento.model.Curso;
+import br.ensalamento.model.Ensalamento;
+import br.ensalamento.model.Usuario;
+
+public class Aplicacao
+{
+
+    public static void main(String[] args)
+    {
+        
+    //	Ensalamento tEnsalamento = new Ensalamento();
+    //	tEnsalamento.setCurso(curso);
+    //	tEnsalamento.setDataFim(dataFim);
+    	
+    	
+    	
+    	Curso cCurso = new Curso();
+    	
+    	
+    	
+    	Usuario tUsuario = new Usuario();
+    //    tUsuario.setEnsalamento(ensalamento);
+        tUsuario.setNomeCompleto("Felisberta Frundelfo");
+        tUsuario.setTipoUsuario("Aluno");
+        tUsuario.setEmail("teste@teste.com.br");
+        tUsuario.setSenha("123456");
+        tUsuario.setIdFacebook("123456");
+        
+        
+ 
+ 	
+
+    
+
+
+        
+        
+
+        HibernateUtil.iniciarTransacao();
 //
-//import java.util.List;
+        SessionFactory tFabrica = HibernateUtil.getSessionFactory();
+        Session tSessao = tFabrica.getCurrentSession();
+        
+        cCurso = (Curso) tSessao.get(Curso.class,1);
+
+       //Incluindo
+       tSessao.save(tUsuario);
 //
-//import org.hibernate.Criteria;
-//import org.hibernate.Session;
-//import org.hibernate.SessionFactory;
-//import org.hibernate.criterion.Restrictions;
+      //Recuperando
+        tUsuario = (Usuario) tSessao.get(Usuario.class,1);
 //
-//public class Aplicacao
-//{
+        //Alterando
+//        tSessao.merge(tUsuario);
 //
-//    public static void main(String[] args)
-//    {
-//        Contato tContato = new Contato();
-//        tContato.setCodigo(2);
-//        tContato.setNome("Felisberta Frundelfo");
-//        tContato.setTelefone(41994343L);
-//
-//        HibernateUtil.iniciarTransacao();
-//
-//        SessionFactory tFabrica = HibernateUtil.getSessionFactory();
-//        Session tSessao = tFabrica.getCurrentSession();
-//
-//        //Incluindo
-//        tSessao.save(tContato);
-//
-//        //Recuperando
-//        tContato = (Contato) tSessao.get(Contato.class,1);
-//
-//        //Alterando
-//        tSessao.merge(tContato);
-//
-//        //Removendo
-//        tSessao.delete(tContato);
+        //Removendo
+      tSessao.delete(tUsuario);
 //
 //        //Recuperando geral
-//        Query tQuery = tSessao.createQuery("FROM CONTATO");
-//        List<Contato> tLista = tQuery.list();
+//        Query tQuery = tSessao.createQuery("FROM Usuario");
+//        List<Usuario> tLista = tQuery.list();
 //
-//        for (Contato tContato2 : tLista)
+//        for (Usuario tUsuario2 : tLista)
 //        {
-//        System.out.println(tContato2);
+//        System.out.println(tUsuario2);
 //        }
 //
-//        System.out.println("Contato recuperado : " + tContato);
+//        System.out.println("Usuario recuperado : " + tUsuario);
 //
 //        //Recuperando por criterio
-//        Criteria tCriterio = tSessao.createCriteria(Contato.class);
+//        Criteria tCriterio = tSessao.createCriteria(Usuario.class);
 //        tCriterio.add(Restrictions.or(Restrictions.ilike("nome", "jori%"), Restrictions.eq("id", 6)));
 //
-//        List<Contato> tLista = tCriterio.list();
+//        List<Usuario> tLista = tCriterio.list();
 //
-//        for (Contato tContato2 : tLista)
+//        for (Usuario tUsuario2 : tLista)
 //        {
-//            System.out.println(tContato2);
+//            System.out.println(tUsuario2);
 //        }
 //
 //        HibernateUtil.confirmarTransacao();
 //
 //        HibernateUtil.fecharConexao();
-//    }
-//
-//}
+    }
+
+}

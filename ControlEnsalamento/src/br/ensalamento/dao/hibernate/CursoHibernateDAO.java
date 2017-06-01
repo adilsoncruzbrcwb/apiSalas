@@ -91,8 +91,7 @@ public class CursoHibernateDAO implements CursoDao {
 		try {
 			SessionFactory tFactory = HibernateUtil.getSessionFactory();
 			Session tSessao = tFactory.getCurrentSession();
-
-			Query tQuery = tSessao.createQuery("FROM TB_CURSO");
+			Query tQuery = tSessao.createQuery("from tb_curso");
 
 			tLista = tQuery.list();
 

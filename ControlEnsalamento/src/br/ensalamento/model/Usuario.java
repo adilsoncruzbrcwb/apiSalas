@@ -18,12 +18,10 @@ public class Usuario implements Serializable, Cloneable {
 	private static final long serialVersionUID = 2179092916642396463L;
 	
 	private int 			matricula;
- 	private Ensalamento 	ensalamento;	
 	private String 			nomeCompleto;
 	private String 			tipoUsuario;
 	private String 			email;
 	private String 			senha;
-
 	private String			idFacebook;
 
 	
@@ -39,11 +37,6 @@ public class Usuario implements Serializable, Cloneable {
 	private Boolean status;
 	public Boolean getStatus() {return status;}
 	public void setStatus(Boolean status) {this.status = status;}
-
-	@ManyToOne
-	@JoinColumn(name = "USUARIO_ENSALAMENTO") // Nome da chave estrangeira na tabela
-	public Ensalamento getEnsalamento() {return ensalamento;}
-	public void setEnsalamento(Ensalamento ensalamento) {this.ensalamento = ensalamento;}
 
 	@Column (name = "NomeCompleto")
 	public String getNomeCompleto() {return nomeCompleto;}
@@ -75,7 +68,6 @@ public class Usuario implements Serializable, Cloneable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + ((ensalamento == null) ? 0 : ensalamento.hashCode());
 		result = prime * result + ((idFacebook == null) ? 0 : idFacebook.hashCode());
 		result = prime * result + matricula;
 		result = prime * result + ((nomeCompleto == null) ? 0 : nomeCompleto.hashCode());
@@ -101,11 +93,6 @@ public class Usuario implements Serializable, Cloneable {
 			if (other.email != null)
 				return false;
 		} else if (!email.equals(other.email))
-			return false;
-		if (ensalamento == null) {
-			if (other.ensalamento != null)
-				return false;
-		} else if (!ensalamento.equals(other.ensalamento))
 			return false;
 		if (idFacebook == null) {
 			if (other.idFacebook != null)

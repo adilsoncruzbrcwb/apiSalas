@@ -24,4 +24,10 @@ public interface UsuarioDAO {
 	// Método para pesquisar por nome todos os Usuarioes da base de dados
 	List<Usuario> searchByNome(String pNome);
 
+	// Método para pesquisar por id do facebook todos os Usuarioes da base de dados
+	List<Usuario> searchByFace(String pFace);
+	
+	// Método para pesquisar por Email todos os Usuarioes da base de dados
+	List<Usuario> searchByEmail(String Email);
+
 }

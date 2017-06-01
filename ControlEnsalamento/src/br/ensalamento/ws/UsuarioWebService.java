@@ -53,11 +53,25 @@ public class UsuarioWebService {
 	public UsuarioDTO pesquisar() {
 		return UsuarioController.pesquisar();
 	}
-
+	
 	@GET
 	@Path("/PesquisarPorNome/{nome}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public UsuarioDTO pesquisarPorNome(@PathParam("nome") String pNome) {
 		return UsuarioController.pesquisarPorNome(pNome);
+	}
+	
+	@GET
+	@Path("/PesquisarPorIdFace/{idface}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public UsuarioDTO pesquisarPorFace(@PathParam("idface") String idface) {
+		return UsuarioController.pesquisarPorFace(idface);
+	}
+	
+	@GET
+	@Path("/PesquisarPorEmail/{email}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public UsuarioDTO pesquisarPorEmail(@PathParam("email") String pEmail) {
+		return UsuarioController.pesquisarPorEmail(pEmail);
 	}
 }
