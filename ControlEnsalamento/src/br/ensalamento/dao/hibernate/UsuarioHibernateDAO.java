@@ -89,7 +89,7 @@ public class UsuarioHibernateDAO implements UsuarioDAO {
 			SessionFactory tFactory = HibernateUtil.getSessionFactory();
 			Session tSessao = tFactory.getCurrentSession();
 
-			Query tQuery = tSessao.createQuery("FROM Usuario");
+			Query tQuery = tSessao.createQuery("FROM usuario");
 
 			tLista = tQuery.list();
 

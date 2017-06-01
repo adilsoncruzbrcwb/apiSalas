@@ -28,14 +28,14 @@ public class Aplicacao
     	
     	
     	
-    	Usuario tUsuario = new Usuario();
+   /* 	Usuario tUsuario = new Usuario();
     //    tUsuario.setEnsalamento(ensalamento);
         tUsuario.setNomeCompleto("Felisberta Frundelfo");
         tUsuario.setTipoUsuario("Aluno");
         tUsuario.setEmail("teste@teste.com.br");
         tUsuario.setSenha("123456");
         tUsuario.setIdFacebook("123456");
-        
+      */ 
         
  
  	
@@ -54,16 +54,16 @@ public class Aplicacao
         cCurso = (Curso) tSessao.get(Curso.class,1);
 
        //Incluindo
-       tSessao.save(tUsuario);
+     //  tSessao.save(tUsuario);
 //
       //Recuperando
-        tUsuario = (Usuario) tSessao.get(Usuario.class,1);
+      //  tUsuario = (Usuario) tSessao.get(Usuario.class,1);
 //
         //Alterando
 //        tSessao.merge(tUsuario);
 //
         //Removendo
-      tSessao.delete(tUsuario);
+     // tSessao.delete(tUsuario);
 //
 //        //Recuperando geral
 //        Query tQuery = tSessao.createQuery("FROM Usuario");
