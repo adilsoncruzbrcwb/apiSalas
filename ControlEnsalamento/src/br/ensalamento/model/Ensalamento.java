@@ -2,8 +2,8 @@
 package br.ensalamento.model;
 
 import java.io.Serializable;
-import javax.persistence.Table;
 import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import br.ensalamento.enums.Turno;
 
@@ -31,69 +32,69 @@ public class Ensalamento implements Serializable, Cloneable {
 	private Disciplina disciplina;
 	private Usuario professor;
 
-	
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "IDENSALAMENTO")
 	public int getIdEnsalamento() { return idEnsalamento; }
 	public void setIdEnsalamento(int idEnsalamento) { this.idEnsalamento = idEnsalamento; }
-	
+
 	@Column(name = "TURNO")
 	public Turno getTurno() { return turno; }
 	public void setTurno(Turno turno) { this.turno = turno; }
-	
+
 	@Column(name = "DATAINICIO")
 	public Date getDatainicio() { return datainicio; }
 	public void setDatainicio(Date datainicio) { this.datainicio = datainicio; }
-	
+
 	@Column(name = "DATAFIM")
 	public Date getDataFim() { return dataFim; }
 	public void setDataFim(Date dataFim) { this.dataFim = dataFim; }
-	
+
 	@Column(name = "DIADASEMANA")
 	public String getDiaDaSemana() { return diaDaSemana; }
 	public void setDiaDaSemana(String diaDaSemana) { this.diaDaSemana = diaDaSemana; }
-	
+
 	@Column(name = "DISPONIBILIDADE")
 	public Boolean getDisponibilidade() { return disponibilidade; }
 	public void setDisponibilidade(Boolean disponibilidade) { this.disponibilidade = disponibilidade; }
 
 	@ManyToOne()
-	@JoinColumn(name = "SALA") 
+	@JoinColumn(name = "SALA")
 	public Sala getSala() {
 		return sala;
 	}
 	public void setSala(Sala sala) {
 		this.sala = sala;
 	}
-	
+
 	@ManyToOne()
-	@JoinColumn(name = "CURSO") 
+	@JoinColumn(name = "CURSO")
 	public Curso getCurso() {
 		return curso;
 	}
 	public void setCurso(Curso curso) {
 		this.curso = curso;
 	}
-	
-	@ManyToOne()
-	@JoinColumn(name = "DISCIPLINA") 
+
+/*	@ManyToOne()
+	@JoinColumn(name = "DISCIPLINA")
 	public Disciplina getDisciplina() {
 		return disciplina;
 	}
 	public void setDisciplina(Disciplina disciplina) {
 		this.disciplina = disciplina;
 	}
-	
+	*/
 	@ManyToOne()
-	@JoinColumn(name = "PROFESSOR") 
+	@JoinColumn(name = "PROFESSOR")
 	public Usuario getProfessor() {
 		return professor;
 	}
 	public void setProfessor(Usuario professor) {
 		this.professor = professor;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

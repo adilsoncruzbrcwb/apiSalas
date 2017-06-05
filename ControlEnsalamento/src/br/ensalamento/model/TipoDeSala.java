@@ -16,23 +16,23 @@ import javax.persistence.Table;
 public class TipoDeSala implements Serializable, Cloneable {
 	/* Atributos estáticos */
 	private static final long serialVersionUID = 5878830439335072748L;
-	
+
 
 	private int 	idTipoSala;
 	private String 	nomeTipo;
 	private Sala	mSala;
 
-	
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "IDTIPOSALA")
 	public int getIdTipoSala() { return idTipoSala; }
 	public void setIdTipoSala(int idTipoSala) { this.idTipoSala = idTipoSala; }
-	
+
 	@Column(name = "NOMETIPO")
 	public String getNomeTipo() { return nomeTipo; }
 	public void setNomeTipo(String nomeTipo) { this.nomeTipo = nomeTipo; }
-	
+
 	@ManyToOne()
 	@JoinColumn(name = "tipo_sala") // Nome da chave estrangeira na tabela
 	public Sala getmSala() { return mSala; }

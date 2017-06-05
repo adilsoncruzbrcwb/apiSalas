@@ -4,18 +4,15 @@
 <hibernate-configuration>
 	<session-factory>
 		<!-- Dialeto e Driver para Oracle -->
-		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="dialect">org.hibernate.dialect.OracleDialect</property>
+		<property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
 
-
-		
-	
 		<!-- Detalhes do Banco de Dados -->
-		<property name="connection.username">emsala</property>
-		<property name="connection.password">professorlindo</property>
-		<property name="hibernate.connection.url">jdbc:mysql://31.220.107.108</property>
+		<property name="connection.username">aluno</property>
+		<property name="connection.password">aluno</property>
+		<property name="connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
 		<property name="connection.pool_size">1</property>
-		<property name="hibernate.default_schema">emsala</property>
+		<property name="hibernate.default_schema">aluno</property>
 		<property name="hibernate.current_session_context_class">thread</property>
 
 		<!-- Propriedades Adicionais -->

@@ -21,34 +21,28 @@ public class Turma implements Serializable, Cloneable {
 	private int 		idTurma;
 	private String 		NumerodaSala;
 	private int 		quantidadeAlunos;
-	private Ensalamento ensalamento;
 	private String 		descricao;
-	
+
 	private Usuario 	usuario;
-	
+
 	/* Métodos de acesso */
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "IDTURMA")
 	public int getIdTurma() { return idTurma; }
 	public void setIdTurma(int idTurma) { this.idTurma = idTurma; }
-	
+
 	@Column(name = "DESCRICAO")
 	public String getDescricao() { return descricao; }
 	public void setDescricao(String descricao) {this.descricao = descricao; }
-	
+
 	@Column(name = "NUMERODASALA")
 	public String getNumerodaSala() {return NumerodaSala;}
 	public void setNumerodaSala(String numerodaSala) {NumerodaSala = numerodaSala;}
-	
+
 	@Column(name = "QUANTIDADEALUNOS")
 	public int getQuantidadeAlunos() { return quantidadeAlunos; }
 	public void setQuantidadeAlunos(int quantidadeAlunos) { this.quantidadeAlunos = quantidadeAlunos; }
-	
-	@ManyToOne()
-	@JoinColumn(name = "TURMA_ENSALAMENTO") // Nome da chave estrangeira na tabela
-	public Ensalamento getEnsalamento() { return ensalamento; }
-	public void setEnsalamento(Ensalamento ensalamento) { this.ensalamento = ensalamento; }
 
 	@ManyToOne()
 	@JoinColumn(name = "TURMA_USUARIO") // Nome da chave estrangeira na tabela
@@ -78,7 +72,7 @@ public class Turma implements Serializable, Cloneable {
 		return true;
 	}
 
-	
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
